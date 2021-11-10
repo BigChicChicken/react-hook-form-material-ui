@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button'
 
-import { Form } from 'react-hook-form-material-ui'
+import { Form, Input } from 'react-hook-form-material-ui'
 import 'react-hook-form-material-ui/dist/index.css'
 
 const App = () => {
@@ -12,7 +12,9 @@ const App = () => {
 
   return <>
     <Form onSubmit={handleSubmit}>
-      <Button type="submit" variant="contained">Contained</Button>
+      <Input name="input"/>
+
+      <Button type="submit" variant="contained">Submit</Button>
     </Form>
   </>
 }
