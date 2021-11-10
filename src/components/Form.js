@@ -7,6 +7,10 @@ class Form extends Component {
     onSubmit: PropTypes.func
   }
 
+  static defaultProps = {
+    onSubmit: () => {}
+  }
+
   render() {
     const { onSubmit, form, children } = this.props
 
