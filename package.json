@@ -1,6 +1,6 @@
 {
   "name": "react-hook-form-material-ui",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "This package is a simple bridge between react-hook-form and material-ui",
   "author": "BigChicChicken",
   "license": "MIT",
@@ -24,8 +24,13 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "material-ui": "^0.20.2",
-    "react": "^16.0.0",
+    "react": "^16.0.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.1.0",
+    "prop-types": "^15.7.2",
     "react-hook-form": "^7.19.1"
   },
   "devDependencies": {
