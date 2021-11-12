@@ -16,13 +16,13 @@ class TextField extends Component {
   }
 
   render() {
-    const { textFieldProps, name, hookProps, errorMessages, form } = this.props
-    const errors = Object.values(form.formState.errors)
+    const { textFieldProps, name, hookProps, form } = this.props
+    const error = form.formState.errors[name] || null
 
     const errorProps = {}
-    if (errors.length > 0) {
+    if (error) {
       errorProps.error = true
-      errorProps.helperText = errorMessages[errors[0].type]
+      errorProps.helperText = error.message
     }
 
     return (
