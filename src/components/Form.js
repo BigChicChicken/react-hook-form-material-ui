@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import withForm from '../wrappers/withForm'
 import PropTypes from 'prop-types'
 import { FormProvider } from 'react-hook-form'
+import withForm from '../wrappers/withForm'
 
 class Form extends Component {
   static propTypes = {

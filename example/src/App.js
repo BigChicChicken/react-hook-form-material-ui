@@ -1,8 +1,8 @@
 import React from 'react'
 import Button from '@mui/material/Button'
-
-import { Form, Input } from 'react-hook-form-material-ui'
+import { Form, TextField } from 'react-hook-form-material-ui'
 import 'react-hook-form-material-ui/dist/index.css'
+import { FormControl } from "@mui/material";
 
 const App = () => {
   const handleSubmit = (data) => {
@@ -12,9 +12,11 @@ const App = () => {
 
   return <>
     <Form onSubmit={handleSubmit}>
-      <Input name="input"/>
+      <TextField textFieldProps={{label: "Input"}} name="input" hookProps={{required: true}}/>
 
-      <Button type="submit" variant="contained">Submit</Button>
+      <FormControl margin="dense">
+        <Button type="submit" variant="contained">Submit</Button>
+      </FormControl>
     </Form>
   </>
 }
