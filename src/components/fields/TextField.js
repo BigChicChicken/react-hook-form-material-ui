@@ -26,13 +26,11 @@ class TextField extends Component {
     }
 
     return (
-      <React.Fragment>
-        <TextFieldBase
-          {...textFieldProps}
-          {...errorProps}
-          {...form.register(name, hookProps)}
-        />
-      </React.Fragment>
+      <TextFieldBase
+        {...textFieldProps}
+        {...errorProps}
+        {...form.register(name, hookProps)}
+      />
     )
   }
 }
