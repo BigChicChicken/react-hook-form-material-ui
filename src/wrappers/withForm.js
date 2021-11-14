@@ -1,9 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-function withForm(Component) {
+function withForm(Component, parameters = {}) {
   function ComponentWithFormProp(props) {
-    const form = useForm()
+    const form = useForm(parameters)
 
     return <Component {...props} form={form} />
   }
