@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from '@mui/material/Button'
 import { Form, TextField, Select } from 'react-hook-form-material-ui'
-import 'react-hook-form-material-ui/dist/index.css'
 import { FormControl, MenuItem } from "@mui/material";
 
 const App = () => {
