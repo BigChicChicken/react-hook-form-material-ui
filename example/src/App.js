@@ -3,6 +3,10 @@ import Button from '@mui/material/Button'
 import { Form, TextField, Select } from 'react-hook-form-material-ui'
 import { FormControl, MenuItem } from "@mui/material";
 
+const formParameters = {
+  defaultValues: {textField: "toto", select: 1}
+}
+
 const App = () => {
   const handleSubmit = (data) => {
     console.info("Data submitted:")
@@ -10,20 +14,20 @@ const App = () => {
   }
 
   return <>
-    <Form onSubmit={handleSubmit}>
-      <TextField textFieldProps={{label: "Input", margin: "dense"}} name="lol" hookProps={{
+    <Form onSubmit={handleSubmit} parameters={formParameters}>
+      <TextField textFieldProps={{label: "TextField"}} name="textField" hookProps={{
         required: 'This field is required'
       }}/>
 
-      <Select formControlProps={{margin: "dense"}} selectProps={{label: "Select"}} name="select" hookProps={{
+      <Select selectProps={{label: "Select"}} name="select" hookProps={{
         required: 'This field is required'
       }}>
-        <MenuItem value={undefined}>None</MenuItem>
+        <MenuItem value={""}>None</MenuItem>
         <MenuItem value={1}>First item</MenuItem>
         <MenuItem value={2}>Second item</MenuItem>
       </Select>
 
-      <FormControl margin="dense">
+      <FormControl>
         <Button type="submit" variant="contained">Submit</Button>
       </FormControl>
     </Form>

@@ -42,7 +42,9 @@ class Select extends Component {
       errorProps.helperText = error.message
     }
 
-    console.log(form.register(name, hookProps))
+    if (!selectProps.defaultValue) {
+      selectProps.defaultValue = form.getValues(name)
+    }
 
     return (
       <FormControl {...formControlProps} error={errorProps.error}>
