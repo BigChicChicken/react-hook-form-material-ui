@@ -8,6 +8,7 @@ import {
 import withFormContext from '../../wrappers/withFormContext'
 import { AbstractDefaultProps, AbstractPropTypes } from './AbstractFieldProps'
 import PropTypes from 'prop-types'
+import { get } from 'react-hook-form'
 
 class Select extends Component {
   static propTypes = {
@@ -32,22 +33,18 @@ class Select extends Component {
       children,
       name,
       RegisterOptions,
+      ErrorMessages,
       form
     } = this.props
-    const error = form.formState.errors[name] || null
-
-    const errorProps = {}
-    if (error) {
-      errorProps.error = true
-      errorProps.helperText = error.message
-    }
 
     if (!selectProps.defaultValue) {
       selectProps.defaultValue = form.getValues(name)
     }
 
+    const errors = get(form.formState.errors, name)
+
     return (
-      <FormControl {...formControlProps} error={errorProps.error}>
+      <FormControl {...formControlProps} error={!!errors}>
         {selectProps.label && (
           <InputLabel {...inputLabelProps}>{selectProps.label}</InputLabel>
         )}
@@ -56,8 +53,10 @@ class Select extends Component {
           {children}
         </SelectBase>
 
-        {errorProps.error && (
-          <FormHelperText>{errorProps.helperText}</FormHelperText>
+        {!!errors && (
+          <FormHelperText>
+            {ErrorMessages[errors.type] || ErrorMessages.message}
+          </FormHelperText>
         )}
       </FormControl>
     )

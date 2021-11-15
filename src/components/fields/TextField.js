@@ -3,6 +3,7 @@ import { TextField as TextFieldBase } from '@mui/material'
 import withFormContext from '../../wrappers/withFormContext'
 import { AbstractDefaultProps, AbstractPropTypes } from './AbstractFieldProps'
 import PropTypes from 'prop-types'
+import { get } from 'react-hook-form'
 
 class TextField extends Component {
   static propTypes = {
@@ -18,18 +19,15 @@ class TextField extends Component {
   render() {
     const { textFieldProps, name, RegisterOptions, ErrorMessages, form } =
       this.props
-    const error = form.formState.errors[name] || null
-
-    const errorProps = {}
-    if (error) {
-      errorProps.error = true
-      errorProps.helperText = ErrorMessages[error.type] || error.message
-    }
+    const errors = get(form.formState.errors, name)
 
     return (
       <TextFieldBase
         {...textFieldProps}
-        {...errorProps}
+        {...(errors && {
+          error: true,
+          helperText: ErrorMessages[errors.type] || errors.message
+        })}
         {...form.register(name, RegisterOptions)}
       />
     )
