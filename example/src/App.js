@@ -21,7 +21,7 @@ const App = () => {
         mode: "all",
         defaultValues: {
           textField: "My TextField",
-          urlTextField: "my.url.com",
+          urlTextField: "https://root:root@my.url.com:8080/target?foo=bar",
           select: 1
         }
       }}
