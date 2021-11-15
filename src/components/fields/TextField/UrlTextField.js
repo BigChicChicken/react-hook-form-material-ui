@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextField from './TextField'
-import { isUrl } from '../../validators/validators'
+import { isUrl } from '../../../validators/validators'
 
 class UrlTextField extends Component {
   static propTypes = {

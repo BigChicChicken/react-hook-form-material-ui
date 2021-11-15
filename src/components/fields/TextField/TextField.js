@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { TextField as TextFieldBase } from '@mui/material'
-import withFormContext from '../../wrappers/withFormContext'
-import { AbstractDefaultProps, AbstractPropTypes } from './AbstractFieldProps'
+import withFormContext from '../../../wrappers/withFormContext'
+import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
 import { get } from 'react-hook-form'
 
