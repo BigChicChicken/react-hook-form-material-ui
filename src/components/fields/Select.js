@@ -31,7 +31,7 @@ class Select extends Component {
       selectProps,
       children,
       name,
-      hookProps,
+      RegisterOptions,
       form
     } = this.props
     const error = form.formState.errors[name] || null
@@ -52,7 +52,7 @@ class Select extends Component {
           <InputLabel {...inputLabelProps}>{selectProps.label}</InputLabel>
         )}
 
-        <SelectBase {...selectProps} {...form.register(name, hookProps)}>
+        <SelectBase {...selectProps} {...form.register(name, RegisterOptions)}>
           {children}
         </SelectBase>
 

@@ -16,7 +16,7 @@ class TextField extends Component {
   }
 
   render() {
-    const { textFieldProps, name, hookProps, form } = this.props
+    const { textFieldProps, name, RegisterOptions, form } = this.props
     const error = form.formState.errors[name] || null
 
     const errorProps = {}
@@ -29,7 +29,7 @@ class TextField extends Component {
       <TextFieldBase
         {...textFieldProps}
         {...errorProps}
-        {...form.register(name, hookProps)}
+        {...form.register(name, RegisterOptions)}
       />
     )
   }

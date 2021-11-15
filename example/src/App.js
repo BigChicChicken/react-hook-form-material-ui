@@ -7,6 +7,8 @@ const formParameters = {
   defaultValues: {textField: "toto", select: 1}
 }
 
+
+
 const App = () => {
   const handleSubmit = (data) => {
     console.info("Data submitted:")
@@ -15,11 +17,11 @@ const App = () => {
 
   return <>
     <Form onSubmit={handleSubmit} parameters={formParameters}>
-      <TextField textFieldProps={{label: "TextField"}} name="textField" hookProps={{
+      <TextField textFieldProps={{label: "TextField"}} name="textField" RegisterOptions={{
         required: 'This field is required'
       }}/>
 
-      <Select selectProps={{label: "Select"}} name="select" hookProps={{
+      <Select selectProps={{label: "Select"}} name="select" RegisterOptions={{
         required: 'This field is required'
       }}>
         <MenuItem value={""}>None</MenuItem>
