@@ -5,11 +5,13 @@ import withForm from '../wrappers/withForm'
 
 class Form extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func
+    onSubmit: PropTypes.func,
+    parameters: PropTypes.object
   }
 
   static defaultProps = {
-    onSubmit: () => {}
+    onSubmit: () => {},
+    parameters: {}
   }
 
   render() {
@@ -23,4 +25,8 @@ class Form extends Component {
   }
 }
 
-export default withForm(Form)
+export default function (props) {
+  const form = withForm(Form, props.parameters)
+
+  return form(props)
+}
