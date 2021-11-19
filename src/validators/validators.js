@@ -1,3 +1,14 @@
+export function isEmail(value) {
+  const regexp = new RegExp(
+    '^' +
+      "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+" +
+      '$',
+    'i'
+  )
+
+  return !!regexp.exec(value)
+}
+
 export function isUrl(value) {
   const regexp = new RegExp(
     '^' +

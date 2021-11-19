@@ -1,6 +1,16 @@
-import { isUrl } from './validators'
+import { isEmail, isUrl } from './validators'
 
 describe('Validators tests', () => {
+  test('isEmail', () => {
+    const emails = {
+      'john.doe@email.com': true
+    }
+
+    Object.entries(emails).forEach(([email, valueExpected]) => {
+      expect(isEmail(email)).toBe(valueExpected)
+    })
+  })
+
   test('isUrl', () => {
     const urls = {
       '127.0.0.1': true,

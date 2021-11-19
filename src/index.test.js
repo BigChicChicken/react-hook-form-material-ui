@@ -2,6 +2,7 @@ import {
   Form,
   Select,
   TextField,
+  EmailTextField,
   UrlTextField,
   withForm,
   withFormContext
@@ -11,6 +12,7 @@ const components = {
   Form,
   Select,
   TextField,
+  EmailTextField,
   UrlTextField,
   withForm,
   withFormContext
