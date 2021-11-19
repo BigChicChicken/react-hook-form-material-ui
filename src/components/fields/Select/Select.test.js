@@ -2,18 +2,27 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Form from '../../Form'
 import Select from './Select'
+import { MenuItem } from '@mui/material'
 
 describe('Select tests', () => {
   test('render', () => {
     const div = document.createElement('div')
     ReactDOM.render(
-      <Form>
+      <Form
+        parameters={{
+          defaultValues: {
+            test: ''
+          }
+        }}
+      >
         <Select
           name='test'
           textFieldProps={{}}
           RegisterOptions={{}}
           ErrorMessages={{}}
-        />
+        >
+          <MenuItem value=''>First item</MenuItem>
+        </Select>
       </Form>,
       div
     )
