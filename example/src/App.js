@@ -1,11 +1,10 @@
 import React from 'react'
 import Button from '@mui/material/Button'
-import { Form, TextField, EmailTextField, UrlTextField, Select } from 'react-hook-form-material-ui'
+import { Form, TextField, UrlTextField, Select, Checkbox } from 'react-hook-form-material-ui'
 import { FormControl, MenuItem } from "@mui/material";
 
 const ErrorMessages = {
   required: "This field is required.",
-  isEmail: "This field is not an email.",
   isUrl: "This field is not an URL."
 }
 
@@ -22,24 +21,15 @@ const App = () => {
         mode: "all",
         defaultValues: {
           textField: "My TextField",
-          emailTextField: "john.doe@email.com",
           urlTextField: "https://root:root@my.url.com:8080/target?foo=bar",
-          select: 1
+          select: 1,
+          checkbox: true
         }
       }}
     >
       <TextField
         textFieldProps={{label: "TextField"}}
         name="textField"
-        RegisterOptions={{
-          required: true
-        }}
-        ErrorMessages={ErrorMessages}
-      />
-
-      <EmailTextField
-        textFieldProps={{label: "EmailTextField"}}
-        name="emailTextField"
         RegisterOptions={{
           required: true
         }}
@@ -67,6 +57,15 @@ const App = () => {
         <MenuItem value={1}>First item</MenuItem>
         <MenuItem value={2}>Second item</MenuItem>
       </Select>
+
+      <Checkbox
+        checkboxProps={{label: "Checkbox"}}
+        name="checkbox"
+        RegisterOptions={{
+          required: true
+        }}
+        ErrorMessages={ErrorMessages}
+      />
 
       <FormControl>
         <Button type="submit" variant="contained">Submit</Button>
