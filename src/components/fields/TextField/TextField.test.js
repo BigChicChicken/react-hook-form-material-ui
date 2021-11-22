@@ -8,12 +8,7 @@ describe('TextField tests', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <Form>
-        <TextField
-          name='test'
-          textFieldProps={{}}
-          RegisterOptions={{}}
-          ErrorMessages={{}}
-        />
+        <TextField name='test' />
       </Form>,
       div
     )
