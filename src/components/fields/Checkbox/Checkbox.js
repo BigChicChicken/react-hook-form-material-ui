@@ -16,6 +16,7 @@ class Checkbox extends Component {
     ...AbstractPropTypes,
     formControlProps: PropTypes.object,
     formGroupLabelProps: PropTypes.object,
+    formControlLabelProps: PropTypes.object,
     checkboxProps: PropTypes.object
   }
 
@@ -23,6 +24,7 @@ class Checkbox extends Component {
     ...AbstractDefaultProps,
     formControlProps: {},
     formGroupLabelProps: {},
+    formControlLabelProps: {},
     checkboxProps: {}
   }
 
@@ -35,6 +37,7 @@ class Checkbox extends Component {
     const {
       formControlProps,
       formGroupLabelProps,
+      formControlLabelProps,
       checkboxProps,
       name,
       RegisterOptions,
@@ -50,9 +53,9 @@ class Checkbox extends Component {
 
     return (
       <FormControl {...formControlProps} error={!!errors}>
-        <FormGroup>
+        <FormGroup {...formGroupLabelProps}>
           <FormControlLabel
-            {...formGroupLabelProps}
+            {...formControlLabelProps}
             control={
               <CheckboxBase
                 {...checkboxProps}
