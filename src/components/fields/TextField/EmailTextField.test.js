@@ -8,12 +8,7 @@ describe('EmailTextField tests', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <Form>
-        <EmailTextField
-          name='test'
-          textFieldProps={{}}
-          RegisterOptions={{}}
-          ErrorMessages={{}}
-        />
+        <EmailTextField name='test' />
       </Form>,
       div
     )
