@@ -8,6 +8,10 @@ function withFormContext(Component) {
     return <Component {...props} form={formContext} />
   }
 
+  for (const [key, value] of Object.entries(Component)) {
+    ComponentWithFormContextProp[key] = value
+  }
+
   return ComponentWithFormContextProp
 }
 
