@@ -15,12 +15,7 @@ describe('Select tests', () => {
           }
         }}
       >
-        <Select
-          name='test'
-          textFieldProps={{}}
-          RegisterOptions={{}}
-          ErrorMessages={{}}
-        >
+        <Select name='test'>
           <MenuItem value=''>First item</MenuItem>
         </Select>
       </Form>,
