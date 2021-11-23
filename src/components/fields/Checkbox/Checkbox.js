@@ -3,7 +3,6 @@ import {
   Checkbox as CheckboxBase,
   FormControl,
   FormControlLabel,
-  FormGroup,
   FormHelperText
 } from '@mui/material'
 import withFormContext from '../../../wrappers/withFormContext'
@@ -36,7 +35,6 @@ class Checkbox extends Component {
   render() {
     const {
       formControlProps,
-      formGroupLabelProps,
       formControlLabelProps,
       checkboxProps,
       name,
@@ -53,19 +51,17 @@ class Checkbox extends Component {
 
     return (
       <FormControl {...formControlProps} error={!!errors}>
-        <FormGroup {...formGroupLabelProps}>
-          <FormControlLabel
-            {...formControlLabelProps}
-            control={
-              <CheckboxBase
-                {...checkboxProps}
-                {...form.register(name, RegisterOptions)}
-                onChange={this.handleChange}
-              />
-            }
-            label={checkboxProps.label || ''}
-          />
-        </FormGroup>
+        <FormControlLabel
+          {...formControlLabelProps}
+          control={
+            <CheckboxBase
+              {...checkboxProps}
+              {...form.register(name, RegisterOptions)}
+              onChange={this.handleChange}
+            />
+          }
+          label={checkboxProps.label || ''}
+        />
 
         {!!errors && (
           <FormHelperText>
