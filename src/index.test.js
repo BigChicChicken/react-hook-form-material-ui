@@ -1,5 +1,6 @@
 import {
   Form,
+  Checkbox,
   Select,
   TextField,
   EmailTextField,
@@ -10,6 +11,7 @@ import {
 
 const components = {
   Form,
+  Checkbox,
   Select,
   TextField,
   EmailTextField,
