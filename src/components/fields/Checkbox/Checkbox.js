@@ -63,7 +63,7 @@ class Checkbox extends Component {
                 onChange={this.handleChange}
               />
             }
-            label={checkboxProps.label}
+            label={checkboxProps.label || ''}
           />
         </FormGroup>
 
