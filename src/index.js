@@ -1,5 +1,6 @@
 export { default as Form } from './components/Form'
 export { default as Checkbox } from './components/fields/Checkbox/Checkbox'
+export { default as Rating } from './components/fields/Rating/Rating'
 export { default as Select } from './components/fields/Select/Select'
 export { default as EmailTextField } from './components/fields/TextField/EmailTextField'
 export { default as TextField } from './components/fields/TextField/TextField'
