@@ -23,7 +23,8 @@ const App = () => {
           textField: "My TextField",
           urlTextField: "https://root:root@my.url.com:8080/target?foo=bar",
           select: 1,
-          checkbox: true
+          checkbox: true,
+          rating: 1
         }
       }}
     >
