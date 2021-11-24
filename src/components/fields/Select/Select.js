@@ -14,48 +14,55 @@ class Select extends Component {
   static propTypes = {
     ...AbstractPropTypes,
     formControlProps: PropTypes.object,
-    inputLabelProps: PropTypes.object,
     selectProps: PropTypes.object
   }
 
   static defaultProps = {
     ...AbstractDefaultProps,
     formControlProps: {},
-    inputLabelProps: {},
     selectProps: {}
+  }
+
+  handleChange = (e) => {
+    const { name, form } = this.props
+    form.setValue(name, e.target.value, { shouldValidate: true })
   }
 
   render() {
     const {
       formControlProps,
-      inputLabelProps,
       selectProps,
       children,
       name,
       RegisterOptions,
       ErrorMessages,
-      form
+      form: {
+        register,
+        formState: { errors },
+        getValues
+      }
     } = this.props
-
-    if (!selectProps.defaultValue) {
-      selectProps.defaultValue = form.getValues(name)
-    }
-
-    const errors = get(form.formState.errors, name)
+    const { onBlur } = register(name, RegisterOptions)
+    const error = get(errors, name)
+    const value = getValues(name)
 
     return (
-      <FormControl {...formControlProps} error={!!errors}>
-        {selectProps.label && (
-          <InputLabel {...inputLabelProps}>{selectProps.label}</InputLabel>
-        )}
+      <FormControl {...formControlProps} error={!!error}>
+        {selectProps.label && <InputLabel>{selectProps.label}</InputLabel>}
 
-        <SelectBase {...selectProps} {...form.register(name, RegisterOptions)}>
+        <SelectBase
+          {...selectProps}
+          name={name}
+          onBlur={onBlur}
+          onChange={this.handleChange}
+          value={value}
+        >
           {children}
         </SelectBase>
 
-        {!!errors && (
+        {!!error && (
           <FormHelperText>
-            {ErrorMessages[errors.type] || ErrorMessages.message}
+            {ErrorMessages[error.type] || ErrorMessages.message}
           </FormHelperText>
         )}
       </FormControl>
