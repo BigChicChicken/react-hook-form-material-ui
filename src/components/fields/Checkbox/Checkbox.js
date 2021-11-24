@@ -14,7 +14,6 @@ class Checkbox extends Component {
   static propTypes = {
     ...AbstractPropTypes,
     formControlProps: PropTypes.object,
-    formGroupLabelProps: PropTypes.object,
     formControlLabelProps: PropTypes.object,
     checkboxProps: PropTypes.object
   }
@@ -22,7 +21,6 @@ class Checkbox extends Component {
   static defaultProps = {
     ...AbstractDefaultProps,
     formControlProps: {},
-    formGroupLabelProps: {},
     formControlLabelProps: {},
     checkboxProps: {}
   }
@@ -40,32 +38,35 @@ class Checkbox extends Component {
       name,
       RegisterOptions,
       ErrorMessages,
-      form
+      form: {
+        register,
+        formState: { errors },
+        getValues
+      }
     } = this.props
-
-    if (!checkboxProps.defaultValue) {
-      checkboxProps.checked = form.getValues(name) ?? false
-    }
-
-    const errors = get(form.formState.errors, name)
+    const { onBlur } = register(name, RegisterOptions)
+    const error = get(errors, name)
+    const value = getValues(name)
 
     return (
-      <FormControl {...formControlProps} error={!!errors}>
+      <FormControl {...formControlProps} error={!!error}>
         <FormControlLabel
           {...formControlLabelProps}
           control={
             <CheckboxBase
               {...checkboxProps}
-              {...form.register(name, RegisterOptions)}
+              name={name}
+              onBlur={onBlur}
               onChange={this.handleChange}
+              checked={value}
             />
           }
           label={checkboxProps.label || ''}
         />
 
-        {!!errors && (
+        {!!error && (
           <FormHelperText>
-            {ErrorMessages[errors.type] || ErrorMessages.message}
+            {ErrorMessages[error.type] || ErrorMessages.message}
           </FormHelperText>
         )}
       </FormControl>
