@@ -14,14 +14,12 @@ class Checkbox extends Component {
   static propTypes = {
     ...AbstractPropTypes,
     formControlProps: PropTypes.object,
-    formControlLabelProps: PropTypes.object,
     checkboxProps: PropTypes.object
   }
 
   static defaultProps = {
     ...AbstractDefaultProps,
     formControlProps: {},
-    formControlLabelProps: {},
     checkboxProps: {}
   }
 
@@ -33,7 +31,6 @@ class Checkbox extends Component {
   render() {
     const {
       formControlProps,
-      formControlLabelProps,
       checkboxProps,
       name,
       RegisterOptions,
@@ -51,7 +48,6 @@ class Checkbox extends Component {
     return (
       <FormControl {...formControlProps} error={!!error}>
         <FormControlLabel
-          {...formControlLabelProps}
           control={
             <CheckboxBase
               {...checkboxProps}
