@@ -37,13 +37,13 @@ class Rating extends Component {
       ErrorMessages,
       form: {
         register,
-        formState: { errors }
+        formState: { errors },
+        getValues
       }
     } = this.props
-
     const { onBlur } = register(name, RegisterOptions)
-
     const error = get(errors, name)
+    const value = getValues(name)
 
     return (
       <FormControl {...formControlProps} error={!!error}>
@@ -54,6 +54,7 @@ class Rating extends Component {
           name={name}
           onBlur={onBlur}
           onChange={this.handleChange}
+          value={value}
         />
 
         {!!error && (
