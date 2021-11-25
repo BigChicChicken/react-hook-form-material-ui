@@ -17,18 +17,24 @@ class TextField extends Component {
   }
 
   render() {
-    const { textFieldProps, name, RegisterOptions, ErrorMessages, form } =
-      this.props
-    const errors = get(form.formState.errors, name)
+    const {
+      textFieldProps,
+      name,
+      RegisterOptions,
+      ErrorMessages,
+      form: {
+        register,
+        formState: { errors }
+      }
+    } = this.props
+    const error = get(errors, name)
 
     return (
       <TextFieldBase
         {...textFieldProps}
-        {...(errors && {
-          error: true,
-          helperText: ErrorMessages[errors.type] || errors.message
-        })}
-        {...form.register(name, RegisterOptions)}
+        {...register(name, RegisterOptions)}
+        error={!!error}
+        helperText={error ? ErrorMessages[error.type] || error.message : null}
       />
     )
   }
