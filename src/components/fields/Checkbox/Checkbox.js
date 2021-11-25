@@ -23,9 +23,17 @@ class Checkbox extends Component {
     checkboxProps: {}
   }
 
-  handleChange = (e, value) => {
-    const { name, form } = this.props
-    form.setValue(name, value, { shouldValidate: true })
+  constructor(props) {
+    super(props)
+
+    const {
+      name,
+      form: { getValues }
+    } = this.props
+
+    this.state = {
+      defaultChecked: getValues(name)
+    }
   }
 
   render() {
@@ -37,13 +45,11 @@ class Checkbox extends Component {
       ErrorMessages,
       form: {
         register,
-        formState: { errors },
-        getValues
+        formState: { errors }
       }
     } = this.props
-    const { onBlur } = register(name, RegisterOptions)
+    const { defaultChecked } = this.state
     const error = get(errors, name)
-    const value = getValues(name)
 
     return (
       <FormControl {...formControlProps} error={!!error}>
@@ -51,10 +57,8 @@ class Checkbox extends Component {
           control={
             <CheckboxBase
               {...checkboxProps}
-              name={name}
-              onBlur={onBlur}
-              onChange={this.handleChange}
-              checked={value}
+              {...register(name, RegisterOptions)}
+              defaultChecked={defaultChecked}
             />
           }
           label={checkboxProps.label || ''}
