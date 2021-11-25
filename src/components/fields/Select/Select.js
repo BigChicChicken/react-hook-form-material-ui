@@ -23,9 +23,17 @@ class Select extends Component {
     selectProps: {}
   }
 
-  handleChange = (e) => {
-    const { name, form } = this.props
-    form.setValue(name, e.target.value, { shouldValidate: true })
+  constructor(props) {
+    super(props)
+
+    const {
+      name,
+      form: { getValues }
+    } = this.props
+
+    this.state = {
+      defaultValue: getValues(name)
+    }
   }
 
   render() {
@@ -38,13 +46,11 @@ class Select extends Component {
       ErrorMessages,
       form: {
         register,
-        formState: { errors },
-        getValues
+        formState: { errors }
       }
     } = this.props
-    const { onBlur } = register(name, RegisterOptions)
+    const { defaultValue } = this.state
     const error = get(errors, name)
-    const value = getValues(name)
 
     return (
       <FormControl {...formControlProps} error={!!error}>
@@ -52,10 +58,8 @@ class Select extends Component {
 
         <SelectBase
           {...selectProps}
-          name={name}
-          onBlur={onBlur}
-          onChange={this.handleChange}
-          value={value}
+          {...register(name, RegisterOptions)}
+          defaultValue={defaultValue}
         >
           {children}
         </SelectBase>
