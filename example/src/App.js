@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@mui/material/Button'
-import { Form, TextField, UrlTextField, Select, Checkbox, Rating } from 'react-hook-form-material-ui'
+import { Form, TextField, UrlTextField, Select, Checkbox } from 'react-hook-form-material-ui'
 import { FormControl, MenuItem } from "@mui/material";
 
 const ErrorMessages = {
@@ -23,8 +23,7 @@ const App = () => {
           textField: "My TextField",
           urlTextField: "https://root:root@my.url.com:8080/target?foo=bar",
           select: 1,
-          checkbox: true,
-          rating: 1
+          checkbox: true
         }
       }}
     >
@@ -62,15 +61,6 @@ const App = () => {
       <Checkbox
         checkboxProps={{label: "Checkbox"}}
         name="checkbox"
-        RegisterOptions={{
-          required: true
-        }}
-        ErrorMessages={ErrorMessages}
-      />
-
-      <Rating
-        ratingProps={{label: "Rating"}}
-        name="rating"
         RegisterOptions={{
           required: true
         }}
