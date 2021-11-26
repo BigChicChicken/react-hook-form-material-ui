@@ -1,5 +1,6 @@
 import {
   Form,
+  RadioGroup,
   Checkbox,
   Select,
   TextField,
@@ -11,6 +12,7 @@ import {
 
 const components = {
   Form,
+  RadioGroup,
   Checkbox,
   Select,
   TextField,
