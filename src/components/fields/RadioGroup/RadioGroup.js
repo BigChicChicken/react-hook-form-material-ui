@@ -71,13 +71,13 @@ class RadioGroup extends Component {
               control={<Radio {...option.control.props} />}
             />
           ))}
-
-          {!!error && (
-            <FormHelperText>
-              {ErrorMessages[error.type] || ErrorMessages.message}
-            </FormHelperText>
-          )}
         </RadioGroupBase>
+
+        {!!error && (
+          <FormHelperText>
+            {ErrorMessages[error.type] || ErrorMessages.message}
+          </FormHelperText>
+        )}
       </FormControl>
     )
   }
