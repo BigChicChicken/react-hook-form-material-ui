@@ -75,7 +75,7 @@ class RadioGroup extends Component {
 
         {!!error && (
           <FormHelperText>
-            {ErrorMessages[error.type] || ErrorMessages.message}
+            {ErrorMessages[error.type] || error.message}
           </FormHelperText>
         )}
       </FormControl>
