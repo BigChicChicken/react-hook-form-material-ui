@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button'
-import { Form, TextField, UrlTextField, Select, Checkbox } from 'react-hook-form-material-ui'
-import { FormControl, MenuItem } from "@mui/material";
+import { Form, TextField, UrlTextField, Select, Checkbox, RadioGroup } from 'react-hook-form-material-ui'
+import { FormControl, MenuItem, Radio } from "@mui/material";
 
 const ErrorMessages = {
   required: "This field is required.",
@@ -23,13 +23,14 @@ const App = () => {
           textField: "My TextField",
           urlTextField: "https://root:root@my.url.com:8080/target?foo=bar",
           select: 1,
-          checkbox: true
+          checkbox: true,
+          radioGroup: "male"
         }
       }}
     >
       <TextField
-        textFieldProps={{label: "TextField"}}
         name="textField"
+        textFieldProps={{label: "TextField"}}
         RegisterOptions={{
           required: true
         }}
@@ -37,8 +38,8 @@ const App = () => {
       />
 
       <UrlTextField
-        textFieldProps={{label: "UrlTextField"}}
         name="urlTextField"
+        textFieldProps={{label: "UrlTextField"}}
         RegisterOptions={{
           required: true
         }}
@@ -46,8 +47,8 @@ const App = () => {
       />
 
       <Select
-        selectProps={{label: "Select"}}
         name="select"
+        selectProps={{label: "Select"}}
         RegisterOptions={{
           required: true
         }}
@@ -59,8 +60,22 @@ const App = () => {
       </Select>
 
       <Checkbox
-        checkboxProps={{label: "Checkbox"}}
         name="checkbox"
+        checkboxProps={{label: "Checkbox"}}
+        RegisterOptions={{
+          required: true
+        }}
+        ErrorMessages={ErrorMessages}
+      />
+
+      <RadioGroup
+        name="radioGroup"
+        radioGroupProps={{label: "Checkbox"}}
+        options={[
+          { control: <Radio value="female" />, label: "Female" },
+          { control: <Radio value="male" />, label: "Male" },
+          { control: <Radio value="other" />, label: "Other" }
+        ]}
         RegisterOptions={{
           required: true
         }}
