@@ -57,7 +57,7 @@ class Slider extends Component {
         <SliderBase
           {...sliderProps}
           {...register(name, RegisterOptions)}
-          defaultValue={defaultValue}
+          defaultValue={defaultValue || 0}
         />
 
         {!!error && (
