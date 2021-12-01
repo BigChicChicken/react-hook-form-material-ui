@@ -22,6 +22,9 @@
 - [Slider](#slider)
   - [formControlProps](#slider_formControlProps)
   - [sliderProps](#slider_sliderProps)
+- [Switch](#switch)
+  - [formControlProps](#switch_formControlProps)
+  - [switchProps](#switch_switchProps)
 ---
 
 ### <a id="form">Form</a>
@@ -157,5 +160,27 @@ This object allows to pass all properties to the FormControl.
 This object allows to pass all properties to the Slider.
 
 *Refer to [Slider (material-ui)](https://mui.com/api/slider)*
+
+---
+
+### <a id="switch">Switch</a>
+
+*Inheritance*
+
+*While not explicitly documented above, the props of the [AbstractFieldProps](#abstractFieldProps) component are also available on this component.*
+
+`import { Switch } from 'react-hook-form-material-ui'`
+
+#### <a id="switch_formControlProps">formControlProps</a> : object (optional) : {}
+
+This object allows to pass all properties to the FormControl.
+
+*Refer to [FormControl (material-ui)](https://mui.com/api/form-control)*
+
+#### <a id="switch_switchProps">switchProps</a> : object (optional) : {}
+
+This object allows to pass all properties to the Switch.
+
+*Refer to [Switch (material-ui)](https://mui.com/api/switch)*
 
 ---
