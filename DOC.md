@@ -16,6 +16,9 @@
   - [formControlProps](#radioGroup_formControlProps)
   - [radioGroupProps](#radioGroup_radioGroupProps)
   - [options](#radioGroup_options)
+- [Select](#select)
+  - [formControlProps](#select_formControlProps)
+  - [selectProps](#select_selectProps)
 ---
 
 ### <a id="form">Form</a>
@@ -107,4 +110,26 @@ example:
   { control: <Radio value="second_choice" />, label: "Second choice" },
 ]
 ```
+---
+
+### <a id="select">Select</a>
+
+*Inheritance*
+
+*While not explicitly documented above, the props of the [AbstractFieldProps](#abstractFieldProps) component are also available on this component.*
+
+`import { Select } from 'react-hook-form-material-ui'`
+
+#### <a id="select_formControlProps">formControlProps</a> : object (optional) : {}
+
+This object allows to pass all properties to the FormControl.
+
+*Refer to [FormControl (material-ui)](https://mui.com/api/form-control)*
+
+#### <a id="select_selectProps">selectProps</a> : object (optional) : {}
+
+This object allows to pass all properties to the Select.
+
+*Refer to [Select (material-ui)](https://mui.com/api/select)*
+
 ---
