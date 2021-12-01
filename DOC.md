@@ -19,6 +19,9 @@
 - [Select](#select)
   - [formControlProps](#select_formControlProps)
   - [selectProps](#select_selectProps)
+- [Slider](#slider)
+  - [formControlProps](#slider_formControlProps)
+  - [sliderProps](#slider_sliderProps)
 ---
 
 ### <a id="form">Form</a>
@@ -110,6 +113,7 @@ example:
   { control: <Radio value="second_choice" />, label: "Second choice" },
 ]
 ```
+
 ---
 
 ### <a id="select">Select</a>
@@ -131,5 +135,27 @@ This object allows to pass all properties to the FormControl.
 This object allows to pass all properties to the Select.
 
 *Refer to [Select (material-ui)](https://mui.com/api/select)*
+
+---
+
+### <a id="slider">Slider</a>
+
+*Inheritance*
+
+*While not explicitly documented above, the props of the [AbstractFieldProps](#abstractFieldProps) component are also available on this component.*
+
+`import { Slider } from 'react-hook-form-material-ui'`
+
+#### <a id="slider_formControlProps">formControlProps</a> : object (optional) : {}
+
+This object allows to pass all properties to the FormControl.
+
+*Refer to [FormControl (material-ui)](https://mui.com/api/form-control)*
+
+#### <a id="slider_selectProps">sliderProps</a> : object (optional) : {}
+
+This object allows to pass all properties to the Slider.
+
+*Refer to [Slider (material-ui)](https://mui.com/api/slider)*
 
 ---
