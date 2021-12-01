@@ -3,6 +3,12 @@
 - [Form](#form)
   - [onSubmit](#onSubmit)
   - [parameters](#parameters)
+
+
+- [AbstractFieldProps](#abstractFieldProps)
+  - [name](#name)
+  - [RegisterOptions](#registerOptions)
+  - [ErrorMessages](#errorMessages)
 - [Checkbox](#checkbox)
   - [formControlProps](#checkbox_formControlProps)
   - [checkboxProps](#checkboxProps)
@@ -27,7 +33,29 @@ This object allows to pass all parameters to the form's hook.
 
 ---
 
+### <a id="abstractFieldProps">AbstractFieldProps</a>
+
+#### <a id="name">name</a> : string (required)
+
+The name of the field in the form.
+
+#### <a id="registerOptions">RegisterOptions</a> : object (optional) : {}
+
+This object allows to pass all options to the register.
+
+*Refer to [register (react-hook-form)](https://react-hook-form.com/api/useform/register)*
+
+#### <a id="errorMessages">ErrorMessages</a> : object (optional) : {}
+
+This object can be used to predefine all error messages.
+
+---
+
 ### <a id="checkbox">Checkbox</a>
+
+*Inheritance*
+
+*While not explicitly documented above, the props of the [AbstractFieldProps](#abstractFieldProps) component are also available on this component.*
 
 `import { Checkbox } from 'react-hook-form-material-ui'`
 
