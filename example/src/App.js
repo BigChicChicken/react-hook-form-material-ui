@@ -95,7 +95,7 @@ const App = () => {
 
       <Switch
         name="switch"
-        checkboxProps={{label: "Switch"}}
+        switchProps={{label: "Switch"}}
         RegisterOptions={{
           required: true
         }}

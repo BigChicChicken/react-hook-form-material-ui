@@ -20,7 +20,7 @@ class Switch extends Component {
   static defaultProps = {
     ...AbstractDefaultProps,
     formControlProps: {},
-    checkboxProps: {}
+    switchProps: {}
   }
 
   constructor(props) {
@@ -39,7 +39,7 @@ class Switch extends Component {
   render() {
     const {
       formControlProps,
-      checkboxProps,
+      switchProps,
       name,
       RegisterOptions,
       ErrorMessages,
@@ -56,12 +56,12 @@ class Switch extends Component {
         <FormControlLabel
           control={
             <SwitchBase
-              {...checkboxProps}
+              {...switchProps}
               {...register(name, RegisterOptions)}
               defaultChecked={defaultChecked}
             />
           }
-          label={checkboxProps.label || ''}
+          label={switchProps.label || ''}
         />
 
         {!!error && (
