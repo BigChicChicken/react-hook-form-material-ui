@@ -25,6 +25,8 @@
 - [Switch](#switch)
   - [formControlProps](#switch_formControlProps)
   - [switchProps](#switch_switchProps)
+- [TextField](#textField)
+  - [textFieldProps](#textField_textFieldProps)
 ---
 
 ### <a id="form">Form</a>
@@ -182,5 +184,21 @@ This object allows to pass all properties to the FormControl.
 This object allows to pass all properties to the Switch.
 
 *Refer to [Switch (material-ui)](https://mui.com/api/switch)*
+
+---
+
+### <a id="textField">TextField</a>
+
+*Inheritance*
+
+*While not explicitly documented above, the props of the [AbstractFieldProps](#abstractFieldProps) component are also available on this component.*
+
+`import { TextField } from 'react-hook-form-material-ui'`
+
+#### <a id="textField_textFieldProps">textFieldProps</a> : object (optional) : {}
+
+This object allows to pass all properties to the TextField.
+
+*Refer to [TextField (material-ui)](https://mui.com/api/text-field)*
 
 ---
