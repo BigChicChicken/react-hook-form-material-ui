@@ -12,16 +12,31 @@ npm install --save react-hook-form-material-ui
 
 ## Usage
 
-```jsx
-import React, { Component } from 'react'
+```jsximport React from 'react'
+import Button from '@mui/material/Button'
+import { Form, TextField } from 'react-hook-form-material-ui'
+import { FormControl } from "@mui/material";
 
-import MyComponent from 'react-hook-form-material-ui'
-import 'react-hook-form-material-ui/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
+const App = () => {
+  const handleSubmit = (data) => {
+    console.info("Data submitted:")
+    console.info(data)
   }
+
+  return <>
+    <Form
+      onSubmit={handleSubmit}
+    >
+      <TextField
+        name="textField"
+        textFieldProps={{label: "TextField"}}
+      />
+
+      <FormControl>
+        <Button type="submit" variant="contained">Submit</Button>
+      </FormControl>
+    </Form>
+  </>
 }
 ```
 
