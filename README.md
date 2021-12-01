@@ -4,6 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/react-hook-form-material-ui.svg)](https://www.npmjs.com/package/react-hook-form-material-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+| [DOC](/DOC.md) |
+| -------------- |
+
 ## Install
 
 ```bash
