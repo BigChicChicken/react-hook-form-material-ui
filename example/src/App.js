@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@mui/material/Button'
-import { Form, TextField, UrlTextField, Select, Checkbox, RadioGroup, Slider } from 'react-hook-form-material-ui'
+import { Form, TextField, UrlTextField, Select, Checkbox, RadioGroup, Slider, Switch } from 'react-hook-form-material-ui'
 import { FormControl, MenuItem, Radio } from "@mui/material";
 
 const ErrorMessages = {
@@ -25,7 +25,8 @@ const App = () => {
           select: 1,
           checkbox: true,
           radioGroup: "male",
-          slider: 45
+          slider: 45,
+          switch: true
         }
       }}
     >
@@ -86,6 +87,15 @@ const App = () => {
       <Slider
         name="slider"
         sliderProps={{label: "Slider"}}
+        RegisterOptions={{
+          required: true
+        }}
+        ErrorMessages={ErrorMessages}
+      />
+
+      <Switch
+        name="switch"
+        checkboxProps={{label: "Switch"}}
         RegisterOptions={{
           required: true
         }}
