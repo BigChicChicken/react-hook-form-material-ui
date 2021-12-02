@@ -27,6 +27,8 @@
   - [switchProps](#switch_switchProps)
 - [TextField](#textField)
   - [textFieldProps](#textField_textFieldProps)
+- [EmailTextField](#emailTextField)
+- [UrlTextField](#urlTextField)
 ---
 
 ### <a id="form">Form</a>
@@ -200,5 +202,25 @@ This object allows to pass all properties to the Switch.
 This object allows to pass all properties to the TextField.
 
 *Refer to [TextField (material-ui)](https://mui.com/api/text-field)*
+
+---
+
+### <a id="emailTextField">EmailTextField</a>
+
+*Inheritance*
+
+*While not explicitly documented above, the props of the [TextField](#textField) component are also available on this component.*
+
+`import { EmailTextField } from 'react-hook-form-material-ui'`
+
+---
+
+### <a id="urlTextField">UrlTextField</a>
+
+*Inheritance*
+
+*While not explicitly documented above, the props of the [TextField](#textField) component are also available on this component.*
+
+`import { UrlTextField } from 'react-hook-form-material-ui'`
 
 ---
