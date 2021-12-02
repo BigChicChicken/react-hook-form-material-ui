@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,YAAa,CACb,qBACF,CAEA,OACE,6BACF","file":"main.68489e58.chunk.css","sourcesContent":["form {\n  display: flex;\n  flex-direction: column;\n}\n\nform > * {\n  margin-bottom: .75em !important;\n}\n"]}
