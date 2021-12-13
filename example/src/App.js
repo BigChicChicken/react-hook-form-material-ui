@@ -1,12 +1,27 @@
 import React from 'react'
 import Button from '@mui/material/Button'
-import { Form, TextField, EmailTextField, UrlTextField, Select, Checkbox, RadioGroup, Slider, Switch } from 'react-hook-form-material-ui'
+import {
+  Form,
+  TextField,
+  EmailTextField,
+  PasswordTextField,
+  UrlTextField,
+  Select,
+  Checkbox,
+  RadioGroup,
+  Slider,
+  Switch
+} from 'react-hook-form-material-ui'
 import { FormControl, MenuItem, Radio } from "@mui/material";
 
 const ErrorMessages = {
   required: "This field is required.",
   isEmail: "This field is not an email.",
-  isUrl: "This field is not an URL."
+  isUrl: "This field is not an URL.",
+  hasUppercase: "This field must have one uppercase",
+  hasLowercase: "This field must have one lowercase",
+  hasDigit: "This field must have one digit",
+  hasSpecialCharacter: "This field must have one special character"
 }
 
 const App = () => {
@@ -23,6 +38,7 @@ const App = () => {
         defaultValues: {
           textField: "My TextField",
           emailTextField: "my.email@email.com",
+          passwordTextField: "My.password!1234",
           urlTextField: "https://root:root@my.url.com:8080/target?foo=bar",
           select: 1,
           checkbox: true,
@@ -44,6 +60,16 @@ const App = () => {
       <EmailTextField
         name="emailTextField"
         textFieldProps={{label: "EmailTextField"}}
+        RegisterOptions={{
+          required: true
+        }}
+        ErrorMessages={ErrorMessages}
+      />
+
+      <PasswordTextField
+        name="passwordTextField"
+        passwordDifficulty="complex"
+        textFieldProps={{label: "PasswordTextField"}}
         RegisterOptions={{
           required: true
         }}

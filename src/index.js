@@ -5,6 +5,7 @@ export { default as Select } from './components/fields/Select/Select'
 export { default as Slider } from './components/fields/Slider/Slider'
 export { default as Switch } from './components/fields/Switch/Switch'
 export { default as EmailTextField } from './components/fields/TextField/EmailTextField'
+export { default as PasswordTextField } from './components/fields/TextField/PasswordTextField'
 export { default as TextField } from './components/fields/TextField/TextField'
 export { default as UrlTextField } from './components/fields/TextField/UrlTextField'
 
