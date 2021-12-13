@@ -29,3 +29,27 @@ export function isUrl(value) {
 
   return !!regexp.exec(value)
 }
+
+export function hasUppercase(value) {
+  const regexp = new RegExp('[A-Z]')
+
+  return !!regexp.exec(value)
+}
+
+export function hasLowercase(value) {
+  const regexp = new RegExp('[a-z]')
+
+  return !!regexp.exec(value)
+}
+
+export function hasDigit(value) {
+  const regexp = new RegExp('\\d')
+
+  return !!regexp.exec(value)
+}
+
+export function hasSpecialCharacter(value) {
+  const regexp = new RegExp('[&~"#\'{(\\[\\-|`_\\\\@)\\]+=}^$%*?,.;\\/:!<>]')
+
+  return !!regexp.exec(value)
+}
