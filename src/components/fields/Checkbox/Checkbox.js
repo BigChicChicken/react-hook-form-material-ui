@@ -8,7 +8,7 @@ import {
 import withFormContext from '../../../wrappers/withFormContext'
 import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
-import { get } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 
 class Checkbox extends Component {
   static propTypes = {
@@ -23,19 +23,6 @@ class Checkbox extends Component {
     checkboxProps: {}
   }
 
-  constructor(props) {
-    super(props)
-
-    const {
-      name,
-      form: { getValues }
-    } = this.props
-
-    this.state = {
-      defaultChecked: getValues(name)
-    }
-  }
-
   render() {
     const {
       formControlProps,
@@ -43,33 +30,31 @@ class Checkbox extends Component {
       name,
       RegisterOptions,
       ErrorMessages,
-      form: {
-        register,
-        formState: { errors }
-      }
+      form: { control }
     } = this.props
-    const { defaultChecked } = this.state
-    const error = get(errors, name)
 
     return (
-      <FormControl {...formControlProps} error={!!error}>
-        <FormControlLabel
-          control={
-            <CheckboxBase
-              {...checkboxProps}
-              {...register(name, RegisterOptions)}
-              defaultChecked={defaultChecked}
+      <Controller
+        name={name}
+        control={control}
+        rules={RegisterOptions}
+        render={({ field: { value, ...field }, fieldState: { error } }) => (
+          <FormControl {...formControlProps} error={!!error}>
+            <FormControlLabel
+              control={
+                <CheckboxBase {...checkboxProps} {...field} checked={value} />
+              }
+              label={checkboxProps.label || ''}
             />
-          }
-          label={checkboxProps.label || ''}
-        />
 
-        {!!error && (
-          <FormHelperText>
-            {ErrorMessages[error.type] || error.message}
-          </FormHelperText>
+            {!!error && (
+              <FormHelperText>
+                {ErrorMessages[error.type] || error.message}
+              </FormHelperText>
+            )}
+          </FormControl>
         )}
-      </FormControl>
+      />
     )
   }
 }

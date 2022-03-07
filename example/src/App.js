@@ -12,7 +12,7 @@ import {
   Slider,
   Switch
 } from 'react-hook-form-material-ui'
-import { FormControl, MenuItem, Radio } from "@mui/material";
+import { FormControl, MenuItem } from "@mui/material";
 
 const ErrorMessages = {
   required: "This field is required.",
@@ -25,13 +25,23 @@ const ErrorMessages = {
 }
 
 const App = () => {
+  const formRef = React.createRef();
+
   const handleSubmit = (data) => {
     console.info("Data submitted:")
     console.info(data)
   }
 
+  const handleReset = (e) => {
+    const { current: { props: { form: { reset } } } } = formRef
+
+    reset()
+    e.preventDefault()
+  }
+
   return <>
     <Form
+      forwardedRef={formRef}
       onSubmit={handleSubmit}
       parameters={{
         mode: "all",
@@ -111,9 +121,9 @@ const App = () => {
         name="radioGroup"
         radioGroupProps={{label: "Checkbox"}}
         options={[
-          { control: <Radio value="female" />, label: "Female" },
-          { control: <Radio value="male" />, label: "Male" },
-          { control: <Radio value="other" />, label: "Other" }
+          { value: 'female', label: "Female" },
+          { value: 'male', label: "Male" },
+          { value: 'other', label: "Other" }
         ]}
         RegisterOptions={{
           required: true
@@ -138,6 +148,10 @@ const App = () => {
         }}
         ErrorMessages={ErrorMessages}
       />
+
+      <FormControl>
+        <Button type="reset" variant="outlined" onClick={handleReset}>Reset</Button>
+      </FormControl>
 
       <FormControl>
         <Button type="submit" variant="contained">Submit</Button>

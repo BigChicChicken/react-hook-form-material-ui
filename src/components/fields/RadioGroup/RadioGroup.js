@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
-import { get } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 
 class RadioGroup extends Component {
   static propTypes = {
@@ -27,19 +27,6 @@ class RadioGroup extends Component {
     options: []
   }
 
-  constructor(props) {
-    super(props)
-
-    const {
-      name,
-      form: { getValues }
-    } = this.props
-
-    this.state = {
-      defaultValue: getValues(name)
-    }
-  }
-
   render() {
     const {
       formControlProps,
@@ -48,37 +35,34 @@ class RadioGroup extends Component {
       name,
       RegisterOptions,
       ErrorMessages,
-      form: {
-        register,
-        formState: { errors }
-      }
+      form: { control }
     } = this.props
-    const { defaultValue } = this.state
-    const error = get(errors, name)
 
     return (
-      <FormControl {...formControlProps} error={!!error}>
-        {radioGroupProps.label && (
-          <FormLabel>{radioGroupProps.label}</FormLabel>
-        )}
+      <Controller
+        name={name}
+        control={control}
+        rules={RegisterOptions}
+        render={({ field, fieldState: { error } }) => (
+          <FormControl {...formControlProps} error={!!error}>
+            {radioGroupProps.label && (
+              <FormLabel>{radioGroupProps.label}</FormLabel>
+            )}
 
-        <RadioGroupBase {...radioGroupProps} defaultValue={defaultValue}>
-          {options.map((option, index) => (
-            <FormControlLabel
-              key={index}
-              {...option}
-              {...register(name, RegisterOptions)}
-              control={<Radio {...option.control.props} />}
-            />
-          ))}
-        </RadioGroupBase>
+            <RadioGroupBase {...radioGroupProps} {...field}>
+              {options.map((option, index) => (
+                <FormControlLabel key={index} {...option} control={<Radio />} />
+              ))}
+            </RadioGroupBase>
 
-        {!!error && (
-          <FormHelperText>
-            {ErrorMessages[error.type] || error.message}
-          </FormHelperText>
+            {!!error && (
+              <FormHelperText>
+                {ErrorMessages[error.type] || error.message}
+              </FormHelperText>
+            )}
+          </FormControl>
         )}
-      </FormControl>
+      />
     )
   }
 }

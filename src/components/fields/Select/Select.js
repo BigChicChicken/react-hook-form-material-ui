@@ -8,7 +8,7 @@ import {
 import withFormContext from '../../../wrappers/withFormContext'
 import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
-import { get } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 
 class Select extends Component {
   static propTypes = {
@@ -23,19 +23,6 @@ class Select extends Component {
     selectProps: {}
   }
 
-  constructor(props) {
-    super(props)
-
-    const {
-      name,
-      form: { getValues }
-    } = this.props
-
-    this.state = {
-      defaultValue: getValues(name)
-    }
-  }
-
   render() {
     const {
       formControlProps,
@@ -44,32 +31,30 @@ class Select extends Component {
       name,
       RegisterOptions,
       ErrorMessages,
-      form: {
-        register,
-        formState: { errors }
-      }
+      form: { control }
     } = this.props
-    const { defaultValue } = this.state
-    const error = get(errors, name)
 
     return (
-      <FormControl {...formControlProps} error={!!error}>
-        {selectProps.label && <InputLabel>{selectProps.label}</InputLabel>}
+      <Controller
+        name={name}
+        control={control}
+        rules={RegisterOptions}
+        render={({ field, fieldState: { error } }) => (
+          <FormControl {...formControlProps} error={!!error}>
+            {selectProps.label && <InputLabel>{selectProps.label}</InputLabel>}
 
-        <SelectBase
-          {...selectProps}
-          {...register(name, RegisterOptions)}
-          defaultValue={defaultValue}
-        >
-          {children}
-        </SelectBase>
+            <SelectBase {...selectProps} {...field}>
+              {children}
+            </SelectBase>
 
-        {!!error && (
-          <FormHelperText>
-            {ErrorMessages[error.type] || error.message}
-          </FormHelperText>
+            {!!error && (
+              <FormHelperText>
+                {ErrorMessages[error.type] || error.message}
+              </FormHelperText>
+            )}
+          </FormControl>
         )}
-      </FormControl>
+      />
     )
   }
 }
