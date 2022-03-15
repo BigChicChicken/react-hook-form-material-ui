@@ -12,6 +12,10 @@
 - [Checkbox](#checkbox)
   - [formControlProps](#checkbox_formControlProps)
   - [checkboxProps](#checkbox_checkboxProps)
+- [Collection](#collection)
+  - [name](#collection_name)
+  - [fieldsRender](#collection_fieldsRender)
+  - [buttonsRender](#collection_buttonsRender)
 - [RadioGroup](#radioGroup)
   - [formControlProps](#radioGroup_formControlProps)
   - [radioGroupProps](#radioGroup_radioGroupProps)
@@ -83,11 +87,23 @@ This object allows to pass all properties to the FormControl.
 
 *Refer to [FormControl (material-ui)](https://mui.com/api/form-control)*
 
-#### <a id="checkbox_checkboxProps">checkboxProps</a> : object (optional) : {}
+---
 
-This object allows to pass all properties to the Checkbox.
+### <a id="collection">Collection</a>
 
-*Refer to [Checkbox (material-ui)](https://mui.com/api/checkbox)*
+`import { Collection } from 'react-hook-form-material-ui'`
+
+#### <a id="collection_name">name</a> : string (required)
+
+The name of the array of fields in the form.
+
+#### <a id="collection_fieldsRender">fieldsRender</a> : function (required)
+
+This function allows to customize the rendering of fields.
+
+#### <a id="collection_buttonsRender">buttonsRender</a> : function (required)
+
+This function allows to customize the rendering of buttons.
 
 ---
 
