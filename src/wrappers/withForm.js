@@ -9,6 +9,10 @@ function withForm(Component, parameters = {}) {
     return <Component ref={forwardedRef} {...otherProps} form={form} />
   }
 
+  for (const [key, value] of Object.entries(Component)) {
+    ComponentWithFormProp[key] = value
+  }
+
   return ComponentWithFormProp
 }
 

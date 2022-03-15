@@ -10,9 +10,10 @@ import {
   Checkbox,
   RadioGroup,
   Slider,
-  Switch
+  Switch,
+  Collection
 } from 'react-hook-form-material-ui'
-import { FormControl, MenuItem } from "@mui/material";
+import { FormControl, Grid, MenuItem } from "@mui/material";
 
 const ErrorMessages = {
   required: "This field is required.",
@@ -54,7 +55,13 @@ const App = () => {
           checkbox: true,
           radioGroup: "male",
           slider: 45,
-          switch: true
+          switch: true,
+          collection: [
+            { speech: 'Harder' },
+            { speech: 'Better' },
+            { speech: 'Faster' },
+            { speech: 'Stronger' }
+          ]
         }
       }}
     >
@@ -121,9 +128,9 @@ const App = () => {
         name="radioGroup"
         radioGroupProps={{label: "Checkbox"}}
         options={[
-          { value: 'female', label: "Female" },
-          { value: 'male', label: "Male" },
-          { value: 'other', label: "Other" }
+          {value: 'female', label: "Female"},
+          {value: 'male', label: "Male"},
+          {value: 'other', label: "Other"}
         ]}
         RegisterOptions={{
           required: true
@@ -147,6 +154,36 @@ const App = () => {
           required: true
         }}
         ErrorMessages={ErrorMessages}
+      />
+
+      <Collection
+        name="collection"
+        cardHeaderProps={{
+          title: "Speechs"
+        }}
+        fieldsRender={ ({fields, remove}) => (
+          <Grid container direction="column" spacing={2}>
+            { fields.map(({id, speech}, index) => (
+              <Grid key={id} item>
+                <TextField
+                  name={ `collection[${ index }][speech]` }
+                  textFieldProps={{
+                    fullWidth: true
+                  }}
+                  RegisterOptions={{
+                    required: true
+                  }}
+                  ErrorMessages={ErrorMessages}
+                />
+                <Button onClick={() => remove(index)}>Remove</Button>
+              </Grid>
+            )) }
+          </Grid>
+        ) }
+        buttonsRender={ ({append, prepend}) => (<>
+          <Button onClick={ () => append({ speech: '' })}>Append</Button>
+          <Button onClick={ () => prepend({ speech: '' })}>Prepend</Button>
+        </>) }
       />
 
       <FormControl>

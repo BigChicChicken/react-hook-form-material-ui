@@ -2,12 +2,14 @@ import {
   Form,
   RadioGroup,
   Checkbox,
+  Collection,
   Select,
   Slider,
   Switch,
   TextField,
   EmailTextField,
   UrlTextField,
+  withFieldArray,
   withForm,
   withFormContext
 } from './index'
@@ -16,12 +18,14 @@ const components = {
   Form,
   RadioGroup,
   Checkbox,
+  Collection,
   Select,
   Slider,
   Switch,
   TextField,
   EmailTextField,
   UrlTextField,
+  withFieldArray,
   withForm,
   withFormContext
 }
