@@ -10,7 +10,7 @@ describe('Slider tests', () => {
       <Form
         parameters={{
           defaultValues: {
-            test: ''
+            test: 0
           }
         }}
       >
