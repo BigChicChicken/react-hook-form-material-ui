@@ -5,11 +5,11 @@ function withFieldArray(Component) {
   function ComponentWithFieldArrayProp(props) {
     const { control } = useFormContext()
 
-    const { forwardedRef, name, ...otherProps } = props
+    const { forwardedRef, ...otherProps } = props
 
     const fieldArray = useFieldArray({
       control,
-      name
+      name: otherProps.name
     })
 
     return (

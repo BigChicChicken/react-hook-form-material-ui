@@ -13,7 +13,7 @@ import {
   Switch,
   Collection
 } from 'react-hook-form-material-ui'
-import { FormControl, Grid, MenuItem } from "@mui/material";
+import { FormControl, MenuItem, Paper, Table, TableBody, TableCell, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
 
 const ErrorMessages = {
   required: "This field is required.",
@@ -156,35 +156,55 @@ const App = () => {
         ErrorMessages={ErrorMessages}
       />
 
-      <Collection
-        name="collection"
-        cardHeaderProps={{
-          title: "Speechs"
-        }}
-        fieldsRender={ ({fields, remove}) => (
-          <Grid container direction="column" spacing={2}>
-            { fields.map(({id, speech}, index) => (
-              <Grid key={id} item>
-                <TextField
-                  name={ `collection[${ index }][speech]` }
-                  textFieldProps={{
-                    fullWidth: true
-                  }}
-                  RegisterOptions={{
-                    required: true
-                  }}
-                  ErrorMessages={ErrorMessages}
-                />
-                <Button onClick={() => remove(index)}>Remove</Button>
-              </Grid>
-            )) }
-          </Grid>
-        ) }
-        buttonsRender={ ({append, prepend}) => (<>
-          <Button onClick={ () => append({ speech: '' })}>Append</Button>
-          <Button onClick={ () => prepend({ speech: '' })}>Prepend</Button>
-        </>) }
-      />
+      <Paper>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell colSpan={2}>
+                <Typography variant="h5">Speechs</Typography>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+
+          <Collection
+            name="collection"
+            fieldsRender={({fields, remove}) => (
+              <TableBody>
+                {fields.map(({id, speech}, index) => (
+                  <TableRow key={ id }>
+                    <TableCell>
+                      <TextField
+                        name={ `collection[${ index }][speech]` }
+                        textFieldProps={{
+                          fullWidth: true
+                        }}
+                        RegisterOptions={{
+                          required: true
+                        }}
+                        ErrorMessages={ErrorMessages}
+                      />
+                    </TableCell>
+
+                    <TableCell style={{ width: 0 }}>
+                      <Button onClick={() => remove(index)}>Remove</Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            )}
+            buttonsRender={({append, prepend}) => (
+              <TableFooter>
+                <TableRow>
+                  <TableCell colSpan={2}>
+                    <Button onClick={() => append({ speech: '' })}>Append</Button>
+                    <Button onClick={() => prepend({ speech: '' })}>Prepend</Button>
+                  </TableCell>
+                </TableRow>
+              </TableFooter>
+            )}
+          />
+        </Table>
+      </Paper>
 
       <FormControl>
         <Button type="reset" variant="outlined" onClick={handleReset}>Reset</Button>
