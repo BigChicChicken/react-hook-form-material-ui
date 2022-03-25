@@ -3,16 +3,19 @@ import PropTypes from 'prop-types'
 import { FormProvider } from 'react-hook-form'
 import withForm from '../wrappers/withForm'
 
-class Form extends Component {
-  static propTypes = {
-    onSubmit: PropTypes.func,
-    parameters: PropTypes.object
-  }
+export const propTypes = {
+  onSubmit: PropTypes.func,
+  parameters: PropTypes.object
+}
 
-  static defaultProps = {
-    onSubmit: () => {},
-    parameters: {}
-  }
+export const defaultProps = {
+  onSubmit: () => {},
+  parameters: {}
+}
+
+class Form extends Component {
+  static propTypes = propTypes
+  static defaultProps = defaultProps
 
   render() {
     const { onSubmit, form, children } = this.props
@@ -25,8 +28,9 @@ class Form extends Component {
   }
 }
 
-export default function (props) {
-  const form = withForm(Form, props.parameters)
-
-  return form(props)
-}
+export default React.forwardRef(({ parameters, ...props }, ref) =>
+  React.createElement(withForm(Form, parameters), {
+    ref,
+    ...props
+  })
+)

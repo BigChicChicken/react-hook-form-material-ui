@@ -5,16 +5,19 @@ import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
 import { Controller } from 'react-hook-form'
 
-class TextField extends Component {
-  static propTypes = {
-    ...AbstractPropTypes,
-    textFieldProps: PropTypes.object
-  }
+export const propTypes = {
+  ...AbstractPropTypes,
+  textFieldProps: PropTypes.object
+}
 
-  static defaultProps = {
-    ...AbstractDefaultProps,
-    textFieldProps: {}
-  }
+export const defaultProps = {
+  ...AbstractDefaultProps,
+  textFieldProps: {}
+}
+
+class TextField extends Component {
+  static propTypes = propTypes
+  static defaultProps = defaultProps
 
   render() {
     const {

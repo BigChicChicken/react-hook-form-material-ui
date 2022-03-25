@@ -10,18 +10,21 @@ import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
 import { Controller } from 'react-hook-form'
 
-class Slider extends Component {
-  static propTypes = {
-    ...AbstractPropTypes,
-    formControlProps: PropTypes.object,
-    sliderProps: PropTypes.object
-  }
+export const propTypes = {
+  ...AbstractPropTypes,
+  formControlProps: PropTypes.object,
+  sliderProps: PropTypes.object
+}
 
-  static defaultProps = {
-    ...AbstractDefaultProps,
-    formControlProps: {},
-    sliderProps: {}
-  }
+export const defaultProps = {
+  ...AbstractDefaultProps,
+  formControlProps: {},
+  sliderProps: {}
+}
+
+class Slider extends Component {
+  static propTypes = propTypes
+  static defaultProps = defaultProps
 
   render() {
     const {

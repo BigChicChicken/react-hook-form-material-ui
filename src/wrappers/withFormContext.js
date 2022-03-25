@@ -1,19 +1,20 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
+import hoistNonReactStatics from 'hoist-non-react-statics'
 
 function withFormContext(Component) {
-  function ComponentWithFormContextProp(props) {
+  const componentName = Component.displayName || Component.name || 'Component'
+
+  const render = (props, ref) => {
     const formContext = useFormContext()
-    const { forwardedRef, ...otherProps } = props
 
-    return <Component ref={forwardedRef} {...otherProps} form={formContext} />
+    return <Component form={formContext} ref={ref} {...props} />
   }
 
-  for (const [key, value] of Object.entries(Component)) {
-    ComponentWithFormContextProp[key] = value
-  }
+  const WithFormContext = React.forwardRef(render)
+  WithFormContext.displayName = `WithFormContext(${componentName})`
 
-  return ComponentWithFormContextProp
+  return hoistNonReactStatics(WithFormContext, Component)
 }
 
 export default withFormContext

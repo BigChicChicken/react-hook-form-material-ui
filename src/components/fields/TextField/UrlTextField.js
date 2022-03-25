@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
-import TextField from './TextField'
+import TextField, {
+  propTypes as TextFieldPropTypes,
+  defaultProps as TextFieldDefaultProps
+} from './TextField'
 import { isUrl } from '../../../validators/validators'
 
-class UrlTextField extends Component {
-  static propTypes = {
-    ...TextField.propTypes
-  }
+export const propTypes = {
+  ...TextFieldPropTypes
+}
 
-  static defaultProps = {
-    ...TextField.defaultProps
-  }
+export const defaultProps = {
+  ...TextFieldDefaultProps
+}
+
+class UrlTextField extends Component {
+  static propTypes = propTypes
+  static defaultProps = defaultProps
 
   render() {
     const { RegisterOptions } = this.props

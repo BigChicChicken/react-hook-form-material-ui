@@ -10,18 +10,21 @@ import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
 import { Controller } from 'react-hook-form'
 
-class Select extends Component {
-  static propTypes = {
-    ...AbstractPropTypes,
-    formControlProps: PropTypes.object,
-    selectProps: PropTypes.object
-  }
+export const propTypes = {
+  ...AbstractPropTypes,
+  formControlProps: PropTypes.object,
+  selectProps: PropTypes.object
+}
 
-  static defaultProps = {
-    ...AbstractDefaultProps,
-    formControlProps: {},
-    selectProps: {}
-  }
+export const defaultProps = {
+  ...AbstractDefaultProps,
+  formControlProps: {},
+  selectProps: {}
+}
+
+class Select extends Component {
+  static propTypes = propTypes
+  static defaultProps = defaultProps
 
   render() {
     const {

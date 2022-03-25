@@ -1,27 +1,24 @@
 import React from 'react'
 import { useFieldArray, useFormContext } from 'react-hook-form'
+import hoistNonReactStatics from 'hoist-non-react-statics'
 
 function withFieldArray(Component) {
-  function ComponentWithFieldArrayProp(props) {
+  const componentName = Component.displayName || Component.name || 'Component'
+
+  const render = (props, ref) => {
     const { control } = useFormContext()
-
-    const { forwardedRef, ...otherProps } = props
-
     const fieldArray = useFieldArray({
       control,
-      name: otherProps.name
+      name: props.name
     })
 
-    return (
-      <Component ref={forwardedRef} {...otherProps} fieldArray={fieldArray} />
-    )
+    return <Component fieldArray={fieldArray} ref={ref} {...props} />
   }
 
-  for (const [key, value] of Object.entries(Component)) {
-    ComponentWithFieldArrayProp[key] = value
-  }
+  const WithFieldArray = React.forwardRef(render)
+  WithFieldArray.displayName = `WithFieldArray(${componentName})`
 
-  return ComponentWithFieldArrayProp
+  return hoistNonReactStatics(WithFieldArray, Component)
 }
 
 export default withFieldArray

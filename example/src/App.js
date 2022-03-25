@@ -42,7 +42,7 @@ const App = () => {
 
   return <>
     <Form
-      forwardedRef={formRef}
+      ref={formRef}
       onSubmit={handleSubmit}
       parameters={{
         mode: "all",
