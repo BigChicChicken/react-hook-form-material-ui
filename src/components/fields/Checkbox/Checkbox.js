@@ -10,22 +10,7 @@ import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
 import { Controller } from 'react-hook-form'
 
-export const propTypes = {
-  ...AbstractPropTypes,
-  formControlProps: PropTypes.object,
-  checkboxProps: PropTypes.object
-}
-
-export const defaultProps = {
-  ...AbstractDefaultProps,
-  formControlProps: {},
-  checkboxProps: {}
-}
-
 class Checkbox extends Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
-
   render() {
     const {
       formControlProps,
@@ -62,4 +47,18 @@ class Checkbox extends Component {
   }
 }
 
-export default withFormContext(Checkbox)
+const CheckboxComponent = withFormContext(Checkbox)
+
+CheckboxComponent.propTypes = {
+  ...AbstractPropTypes,
+  formControlProps: PropTypes.object,
+  checkboxProps: PropTypes.object
+}
+
+CheckboxComponent.defaultProps = {
+  ...AbstractDefaultProps,
+  formControlProps: {},
+  checkboxProps: {}
+}
+
+export default CheckboxComponent

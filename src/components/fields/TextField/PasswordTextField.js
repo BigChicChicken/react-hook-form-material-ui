@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import TextField, {
-  propTypes as TextFieldPropTypes,
-  defaultProps as TextFieldDefaultProps
-} from './TextField'
+import TextField from './TextField'
 import {
   hasDigit,
   hasLowercase,
@@ -11,20 +8,7 @@ import {
 } from '../../../validators/validators'
 import PropTypes from 'prop-types'
 
-export const propTypes = {
-  ...TextFieldPropTypes,
-  passwordDifficulty: PropTypes.oneOf(['complex', 'basic', 'simplest', 'null'])
-    .isRequired
-}
-
-export const defaultProps = {
-  ...TextFieldDefaultProps
-}
-
 class PasswordTextField extends Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
-
   render() {
     const { textFieldProps, RegisterOptions, passwordDifficulty } = this.props
 
@@ -63,4 +47,16 @@ class PasswordTextField extends Component {
   }
 }
 
-export default PasswordTextField
+const PasswordTextFieldComponent = PasswordTextField
+
+PasswordTextFieldComponent.propTypes = {
+  ...TextField.propTypes,
+  passwordDifficulty: PropTypes.oneOf(['complex', 'basic', 'simplest', 'null'])
+    .isRequired
+}
+
+PasswordTextFieldComponent.defaultProps = {
+  ...TextField.defaultProps
+}
+
+export default PasswordTextFieldComponent

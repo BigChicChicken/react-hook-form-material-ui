@@ -2,15 +2,7 @@ import React, { Component } from 'react'
 import withFieldArray from '../../../wrappers/withFieldArray'
 import PropTypes from 'prop-types'
 
-export const propTypes = {
-  name: PropTypes.string.isRequired,
-  fieldsRender: PropTypes.func.isRequired,
-  buttonsRender: PropTypes.func.isRequired
-}
-
 class Collection extends Component {
-  static propTypes = propTypes
-
   render() {
     const { fieldsRender, buttonsRender, fieldArray } = this.props
 
@@ -23,4 +15,12 @@ class Collection extends Component {
   }
 }
 
-export default withFieldArray(Collection)
+const CollectionComponent = withFieldArray(Collection)
+
+CollectionComponent.propTypes = {
+  name: PropTypes.string.isRequired,
+  fieldsRender: PropTypes.func.isRequired,
+  buttonsRender: PropTypes.func.isRequired
+}
+
+export default CollectionComponent

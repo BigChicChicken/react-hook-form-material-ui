@@ -10,22 +10,7 @@ import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
 import { Controller } from 'react-hook-form'
 
-export const propTypes = {
-  ...AbstractPropTypes,
-  formControlProps: PropTypes.object,
-  checkboxProps: PropTypes.object
-}
-
-export const defaultProps = {
-  ...AbstractDefaultProps,
-  formControlProps: {},
-  switchProps: {}
-}
-
 class Switch extends Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
-
   render() {
     const {
       formControlProps,
@@ -62,4 +47,18 @@ class Switch extends Component {
   }
 }
 
-export default withFormContext(Switch)
+const SwitchComponent = withFormContext(Switch)
+
+SwitchComponent.propTypes = {
+  ...AbstractPropTypes,
+  formControlProps: PropTypes.object,
+  checkboxProps: PropTypes.object
+}
+
+SwitchComponent.defaultProps = {
+  ...AbstractDefaultProps,
+  formControlProps: {},
+  switchProps: {}
+}
+
+export default SwitchComponent

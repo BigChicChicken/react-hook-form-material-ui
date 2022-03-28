@@ -12,24 +12,7 @@ import { AbstractDefaultProps, AbstractPropTypes } from '../AbstractFieldProps'
 import PropTypes from 'prop-types'
 import { Controller } from 'react-hook-form'
 
-export const propTypes = {
-  ...AbstractPropTypes,
-  formControlProps: PropTypes.object,
-  radioGroupProps: PropTypes.object,
-  options: PropTypes.array
-}
-
-export const defaultProps = {
-  ...AbstractDefaultProps,
-  formControlProps: {},
-  radioGroupProps: {},
-  options: []
-}
-
 class RadioGroup extends Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
-
   render() {
     const {
       formControlProps,
@@ -70,4 +53,20 @@ class RadioGroup extends Component {
   }
 }
 
-export default withFormContext(RadioGroup)
+const RadioGroupComponent = withFormContext(RadioGroup)
+
+RadioGroupComponent.propTypes = {
+  ...AbstractPropTypes,
+  formControlProps: PropTypes.object,
+  radioGroupProps: PropTypes.object,
+  options: PropTypes.array
+}
+
+RadioGroupComponent.defaultProps = {
+  ...AbstractDefaultProps,
+  formControlProps: {},
+  radioGroupProps: {},
+  options: []
+}
+
+export default RadioGroupComponent
