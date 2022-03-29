@@ -5,7 +5,7 @@ import withForm from '../wrappers/withForm'
 
 class Form extends Component {
   render() {
-    const { onSubmit, form, children } = this.props
+    const { form, onSubmit, children } = this.props
 
     return (
       <FormProvider {...form}>
@@ -15,12 +15,28 @@ class Form extends Component {
   }
 }
 
-const FormComponent = React.forwardRef(({ parameters, ...props }, ref) =>
-  React.createElement(withForm(Form, parameters), {
-    ref,
-    ...props
-  })
-)
+const FormWrapper = class extends Component {
+  constructor(props) {
+    super(props)
+
+    this.Component = withForm(props.parameters)(Form)
+  }
+
+  render() {
+    const { parameters, innerRef, ...props } = this.props
+
+    return React.createElement(this.Component, {
+      ref: innerRef,
+      ...props
+    })
+  }
+}
+
+const FormComponent = React.forwardRef((props, ref) => (
+  <FormWrapper innerRef={ref} {...props} />
+))
+
+FormComponent.displayName = 'FormWrapper'
 
 FormComponent.propTypes = {
   onSubmit: PropTypes.func,
@@ -31,7 +47,5 @@ FormComponent.defaultProps = {
   onSubmit: () => {},
   parameters: {}
 }
-
-FormComponent.displayName = 'Form'
 
 export default FormComponent

@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import hoistNonReactStatics from 'hoist-non-react-statics'
 
-function withForm(Component, parameters = {}) {
+export default (parameters) => (Component) => {
   const componentName = Component.displayName || Component.name || 'Component'
 
   const render = (props, ref) => {
@@ -16,5 +16,3 @@ function withForm(Component, parameters = {}) {
 
   return hoistNonReactStatics(WithForm, Component)
 }
-
-export default withForm
