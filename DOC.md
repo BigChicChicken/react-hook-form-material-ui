@@ -247,7 +247,7 @@ Choose a password difficulty between:
   - "complex": The password must be have one uppercase, one lowercase, one digit and one special character.
   - "basic": The password must be have one uppercase, one lowercase, and one digit.
   - "simplest": The password must be have one uppercase and one lowercase.
-  - "null": No checks will be performed by default.
+  - null: No checks will be performed by default.
 
 *Refer to [FormControl (material-ui)](https://mui.com/api/form-control)*
 
