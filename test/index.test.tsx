@@ -11,8 +11,8 @@ import {
   UrlTextField,
   withFieldArray,
   withForm,
-  withFormContext,
-} from '../src/index';
+  withFormContext
+} from '../src/index'
 
 const components = {
   Form,
@@ -27,11 +27,11 @@ const components = {
   UrlTextField,
   withFieldArray,
   withForm,
-  withFormContext,
-};
+  withFormContext
+}
 
 describe('Export/Import tests', () => {
   test.each(Object.entries(components))('%s', (_name, component) => {
-    expect(component).toBeDefined();
-  });
-});
+    expect(component).toBeDefined()
+  })
+})

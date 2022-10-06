@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import withFormContext from '../../../wrappers/withFormContext';
+import React, { Component } from 'react'
+import withFormContext from '../../../wrappers/withFormContext'
 import {
   FormControl,
   FormControlLabel,
   FormHelperText,
   FormLabel,
   Radio,
-  RadioGroup as RadioGroupBase,
-} from '@mui/material';
+  RadioGroup as RadioGroupBase
+} from '@mui/material'
 import {
   AbstractDefaultProps,
   AbstractFieldProps,
-  AbstractPropTypes,
-} from '../AbstractFieldProps';
-import PropTypes from 'prop-types';
-import { Controller } from 'react-hook-form';
-import { UseFormReturn } from 'react-hook-form/dist/types';
+  AbstractPropTypes
+} from '../AbstractFieldProps'
+import PropTypes from 'prop-types'
+import { Controller } from 'react-hook-form'
+import { UseFormReturn } from 'react-hook-form/dist/types'
 
 export interface RadioGroupProps extends AbstractFieldProps {
-  formControlProps?: any;
-  radioGroupProps?: any;
-  options?: any[];
+  formControlProps?: any
+  radioGroupProps?: any
+  options?: any[]
 }
 
 class RadioGroup extends Component<
@@ -35,8 +35,8 @@ class RadioGroup extends Component<
       name,
       RegisterOptions,
       ErrorMessages,
-      form: { control },
-    } = this.props;
+      form: { control }
+    } = this.props
 
     return (
       <Controller
@@ -62,30 +62,32 @@ class RadioGroup extends Component<
 
             {!!error && (
               <FormHelperText>
-                {ErrorMessages[error.type] || error.message}
+                {ErrorMessages && ErrorMessages[error.type]
+                  ? ErrorMessages[error.type]
+                  : error.message}
               </FormHelperText>
             )}
           </FormControl>
         )}
       />
-    );
+    )
   }
 }
 
-const RadioGroupComponent = withFormContext(RadioGroup);
+const RadioGroupComponent = withFormContext(RadioGroup)
 
 RadioGroupComponent.propTypes = {
   ...AbstractPropTypes,
   formControlProps: PropTypes.object,
   radioGroupProps: PropTypes.object,
-  options: PropTypes.array,
-};
+  options: PropTypes.array
+}
 
 RadioGroupComponent.defaultProps = {
   ...AbstractDefaultProps,
   formControlProps: {},
   radioGroupProps: {},
-  options: [],
-};
+  options: []
+}
 
-export default RadioGroupComponent;
+export default RadioGroupComponent

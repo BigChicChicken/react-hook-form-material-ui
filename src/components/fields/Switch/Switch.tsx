@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Switch as SwitchBase,
   FormControl,
   FormControlLabel,
-  FormHelperText,
-} from '@mui/material';
-import withFormContext from '../../../wrappers/withFormContext';
+  FormHelperText
+} from '@mui/material'
+import withFormContext from '../../../wrappers/withFormContext'
 import {
   AbstractDefaultProps,
   AbstractFieldProps,
-  AbstractPropTypes,
-} from '../AbstractFieldProps';
-import PropTypes from 'prop-types';
-import { Controller } from 'react-hook-form';
-import { UseFormReturn } from 'react-hook-form/dist/types';
+  AbstractPropTypes
+} from '../AbstractFieldProps'
+import PropTypes from 'prop-types'
+import { Controller } from 'react-hook-form'
+import { UseFormReturn } from 'react-hook-form/dist/types'
 
 export interface SwitchProps extends AbstractFieldProps {
-  formControlProps?: any;
-  switchProps?: any;
+  formControlProps?: any
+  switchProps?: any
 }
 
 class Switch extends Component<SwitchProps & { form: UseFormReturn }, any> {
@@ -28,8 +28,8 @@ class Switch extends Component<SwitchProps & { form: UseFormReturn }, any> {
       name,
       RegisterOptions,
       ErrorMessages,
-      form: { control },
-    } = this.props;
+      form: { control }
+    } = this.props
 
     return (
       <Controller
@@ -47,28 +47,30 @@ class Switch extends Component<SwitchProps & { form: UseFormReturn }, any> {
 
             {!!error && (
               <FormHelperText>
-                {ErrorMessages[error.type] || error.message}
+                {ErrorMessages && ErrorMessages[error.type]
+                  ? ErrorMessages[error.type]
+                  : error.message}
               </FormHelperText>
             )}
           </FormControl>
         )}
       />
-    );
+    )
   }
 }
 
-const SwitchComponent = withFormContext(Switch);
+const SwitchComponent = withFormContext(Switch)
 
 SwitchComponent.propTypes = {
   ...AbstractPropTypes,
   formControlProps: PropTypes.object,
-  checkboxProps: PropTypes.object,
-};
+  checkboxProps: PropTypes.object
+}
 
 SwitchComponent.defaultProps = {
   ...AbstractDefaultProps,
   formControlProps: {},
-  switchProps: {},
-};
+  switchProps: {}
+}
 
-export default SwitchComponent;
+export default SwitchComponent

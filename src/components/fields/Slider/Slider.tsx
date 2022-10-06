@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   FormControl,
   FormHelperText,
   FormLabel,
-  Slider as SliderBase,
-} from '@mui/material';
-import withFormContext from '../../../wrappers/withFormContext';
+  Slider as SliderBase
+} from '@mui/material'
+import withFormContext from '../../../wrappers/withFormContext'
 import {
   AbstractDefaultProps,
   AbstractFieldProps,
-  AbstractPropTypes,
-} from '../AbstractFieldProps';
-import PropTypes from 'prop-types';
-import { Controller } from 'react-hook-form';
-import { UseFormReturn } from 'react-hook-form/dist/types';
+  AbstractPropTypes
+} from '../AbstractFieldProps'
+import PropTypes from 'prop-types'
+import { Controller } from 'react-hook-form'
+import { UseFormReturn } from 'react-hook-form/dist/types'
 
 export interface SliderProps extends AbstractFieldProps {
-  formControlProps?: any;
-  sliderProps?: any;
+  formControlProps?: any
+  sliderProps?: any
 }
 
 class Slider extends Component<SliderProps & { form: UseFormReturn }, any> {
@@ -28,8 +28,8 @@ class Slider extends Component<SliderProps & { form: UseFormReturn }, any> {
       name,
       RegisterOptions,
       ErrorMessages,
-      form: { control },
-    } = this.props;
+      form: { control }
+    } = this.props
 
     return (
       <Controller
@@ -43,28 +43,30 @@ class Slider extends Component<SliderProps & { form: UseFormReturn }, any> {
 
             {!!error && (
               <FormHelperText>
-                {ErrorMessages[error.type] || error.message}
+                {ErrorMessages && ErrorMessages[error.type]
+                  ? ErrorMessages[error.type]
+                  : error.message}
               </FormHelperText>
             )}
           </FormControl>
         )}
       />
-    );
+    )
   }
 }
 
-const SliderComponent = withFormContext(Slider);
+const SliderComponent = withFormContext(Slider)
 
 SliderComponent.propTypes = {
   ...AbstractPropTypes,
   formControlProps: PropTypes.object,
-  sliderProps: PropTypes.object,
-};
+  sliderProps: PropTypes.object
+}
 
 SliderComponent.defaultProps = {
   ...AbstractDefaultProps,
   formControlProps: {},
-  sliderProps: {},
-};
+  sliderProps: {}
+}
 
-export default SliderComponent;
+export default SliderComponent

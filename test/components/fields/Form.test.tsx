@@ -1,6 +1,6 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import Form from '../../../src/components/Form';
+import * as React from 'react'
+import { render } from '@testing-library/react'
+import Form from '../../../src/components/Form'
 
 describe('Form tests', () => {
   test('render', () => {
@@ -8,6 +8,6 @@ describe('Form tests', () => {
       <Form onSubmit={() => {}} parameters={{}}>
         Content
       </Form>
-    );
-  });
-});
+    )
+  })
+})

@@ -4,9 +4,9 @@ export function isEmail(value: string) {
       "[a-zA-Z0-9\\.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+" +
       '$',
     'i'
-  );
+  )
 
-  return !!regexp.exec(value);
+  return !!regexp.exec(value)
 }
 
 export function isUrl(value: string) {
@@ -25,31 +25,31 @@ export function isUrl(value: string) {
       '(?:\\/[-a-zA-Z0-9()@:%_+.~#?&=]*)*' + // Path
       '$',
     'i'
-  );
+  )
 
-  return !!regexp.exec(value);
+  return !!regexp.exec(value)
 }
 
 export function hasUppercase(value: string) {
-  const regexp = new RegExp('[A-Z]');
+  const regexp = new RegExp('[A-Z]')
 
-  return !!regexp.exec(value);
+  return !!regexp.exec(value)
 }
 
 export function hasLowercase(value: string) {
-  const regexp = new RegExp('[a-z]');
+  const regexp = new RegExp('[a-z]')
 
-  return !!regexp.exec(value);
+  return !!regexp.exec(value)
 }
 
 export function hasDigit(value: string) {
-  const regexp = new RegExp('\\d');
+  const regexp = new RegExp('\\d')
 
-  return !!regexp.exec(value);
+  return !!regexp.exec(value)
 }
 
 export function hasSpecialCharacter(value: string) {
-  const regexp = new RegExp('[&~"#\'{(\\[\\-|`_\\\\@)\\]+=}^$%*?,.;\\/:!<>]');
+  const regexp = new RegExp('[&~"#\'{(\\[\\-|`_\\\\@)\\]+=}^$%*?,.;\\/:!<>]')
 
-  return !!regexp.exec(value);
+  return !!regexp.exec(value)
 }

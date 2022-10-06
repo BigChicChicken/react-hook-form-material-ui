@@ -1,6 +1,6 @@
-import 'react-app-polyfill/ie11';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom/client';
+import 'react-app-polyfill/ie11'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom/client'
 import {
   Form,
   FormProps,
@@ -13,8 +13,8 @@ import {
   RadioGroup,
   Slider,
   Switch,
-  Collection,
-} from '../.';
+  Collection
+} from '../.'
 import {
   Button,
   FormControl,
@@ -26,8 +26,8 @@ import {
   TableFooter,
   TableHead,
   TableRow,
-  Typography,
-} from '@mui/material';
+  Typography
+} from '@mui/material'
 
 const ErrorMessages = {
   required: 'This field is required.',
@@ -36,30 +36,30 @@ const ErrorMessages = {
   hasUppercase: 'This field must have one uppercase',
   hasLowercase: 'This field must have one lowercase',
   hasDigit: 'This field must have one digit',
-  hasSpecialCharacter: 'This field must have one special character',
-};
+  hasSpecialCharacter: 'This field must have one special character'
+}
 
 const App = () => {
-  const formRef = React.createRef<{ props: FormProps }>();
+  const formRef = React.createRef<{ props: FormProps }>()
 
   const handleSubmit = (data: any) => {
-    console.info('Data submitted:');
-    console.info(data);
-  };
+    console.info('Data submitted:')
+    console.info(data)
+  }
 
   const handleReset = (e: { preventDefault: () => void }) => {
-    const form = formRef.current;
+    const form = formRef.current
 
     if (form) {
       const {
         props: {
-          form: { reset },
-        },
-      } = form;
-      reset();
+          form: { reset }
+        }
+      } = form
+      reset()
     }
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
   return (
     <Form
@@ -81,98 +81,98 @@ const App = () => {
             { speech: 'Harder' },
             { speech: 'Better' },
             { speech: 'Faster' },
-            { speech: 'Stronger' },
-          ],
-        },
+            { speech: 'Stronger' }
+          ]
+        }
       }}
     >
       <TextField
-        name="textField"
+        name='textField'
         textFieldProps={{ label: 'TextField' }}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
       />
 
       <EmailTextField
-        name="emailTextField"
+        name='emailTextField'
         textFieldProps={{ label: 'EmailTextField' }}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
       />
 
       <PasswordTextField
-        name="passwordTextField"
+        name='passwordTextField'
         textFieldProps={{ label: 'PasswordTextField' }}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
-        passwordDifficulty="complex"
+        passwordDifficulty='complex'
       />
 
       <UrlTextField
-        name="urlTextField"
+        name='urlTextField'
         textFieldProps={{ label: 'UrlTextField' }}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
       />
 
       <Select
-        name="select"
+        name='select'
         selectProps={{ label: 'Select' }}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
       >
-        <MenuItem value="">None</MenuItem>
+        <MenuItem value=''>None</MenuItem>
         <MenuItem value={1}>First item</MenuItem>
         <MenuItem value={2}>Second item</MenuItem>
       </Select>
 
       <Checkbox
-        name="checkbox"
+        name='checkbox'
         checkboxProps={{ label: 'Checkbox' }}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
       />
 
       <RadioGroup
-        name="radioGroup"
+        name='radioGroup'
         radioGroupProps={{ label: 'Checkbox' }}
         options={[
           { value: 'female', label: 'Female' },
           { value: 'male', label: 'Male' },
-          { value: 'other', label: 'Other' },
+          { value: 'other', label: 'Other' }
         ]}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
       />
 
       <Slider
-        name="slider"
+        name='slider'
         sliderProps={{ label: 'Slider' }}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
       />
 
       <Switch
-        name="switch"
+        name='switch'
         switchProps={{ label: 'Switch' }}
         RegisterOptions={{
-          required: true,
+          required: true
         }}
         ErrorMessages={ErrorMessages}
       />
@@ -182,13 +182,13 @@ const App = () => {
           <TableHead>
             <TableRow>
               <TableCell colSpan={2}>
-                <Typography variant="h5">Speechs</Typography>
+                <Typography variant='h5'>Speechs</Typography>
               </TableCell>
             </TableRow>
           </TableHead>
 
           <Collection
-            name="collection"
+            name='collection'
             fieldsRender={({ fields, remove }) => (
               <TableBody>
                 {fields.map(({ id, speech }, index) => (
@@ -197,10 +197,10 @@ const App = () => {
                       <TextField
                         name={`collection[${index}][speech]`}
                         textFieldProps={{
-                          fullWidth: true,
+                          fullWidth: true
                         }}
                         RegisterOptions={{
-                          required: true,
+                          required: true
                         }}
                         ErrorMessages={ErrorMessages}
                       />
@@ -232,21 +232,19 @@ const App = () => {
       </Paper>
 
       <FormControl>
-        <Button type="reset" variant="outlined" onClick={handleReset}>
+        <Button type='reset' variant='outlined' onClick={handleReset}>
           Reset
         </Button>
       </FormControl>
 
       <FormControl>
-        <Button type="submit" variant="contained">
+        <Button type='submit' variant='contained'>
           Submit
         </Button>
       </FormControl>
     </Form>
-  );
-};
+  )
+}
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(<App />);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+root.render(<App />)

@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { Controller } from 'react-hook-form';
+import React, { Component } from 'react'
+import { Controller } from 'react-hook-form'
 import {
   AbstractDefaultProps,
   AbstractFieldProps,
-  AbstractPropTypes,
-} from '../AbstractFieldProps';
-import { TextField as TextFieldBase } from '@mui/material';
-import withFormContext from '../../../wrappers/withFormContext';
-import { UseFormReturn } from 'react-hook-form/dist/types';
-import PropTypes from 'prop-types';
+  AbstractPropTypes
+} from '../AbstractFieldProps'
+import { TextField as TextFieldBase } from '@mui/material'
+import withFormContext from '../../../wrappers/withFormContext'
+import { UseFormReturn } from 'react-hook-form/dist/types'
+import PropTypes from 'prop-types'
 
 export interface TextFieldProps extends AbstractFieldProps {
-  textFieldProps?: any;
+  textFieldProps?: any
 }
 
 class TextField extends Component<
@@ -24,8 +24,8 @@ class TextField extends Component<
       name,
       RegisterOptions,
       ErrorMessages,
-      form: { control },
-    } = this.props;
+      form: { control }
+    } = this.props
 
     return (
       <Controller
@@ -39,7 +39,7 @@ class TextField extends Component<
             error={!!error}
             helperText={
               error
-                ? ErrorMessages
+                ? ErrorMessages && ErrorMessages[error.type]
                   ? ErrorMessages[error.type]
                   : error.message
                 : null
@@ -47,20 +47,20 @@ class TextField extends Component<
           />
         )}
       />
-    );
+    )
   }
 }
 
-const TextFieldComponent = withFormContext(TextField);
+const TextFieldComponent = withFormContext(TextField)
 
 TextFieldComponent.propTypes = {
   ...AbstractPropTypes,
-  textFieldProps: PropTypes.object,
-};
+  textFieldProps: PropTypes.object
+}
 
 TextFieldComponent.defaultProps = {
   ...AbstractDefaultProps,
-  textFieldProps: {},
-};
+  textFieldProps: {}
+}
 
-export default TextFieldComponent;
+export default TextFieldComponent

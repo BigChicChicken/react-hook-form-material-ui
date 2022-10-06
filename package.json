@@ -1,6 +1,6 @@
 {
   "name": "react-hook-form-material-ui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "This package is a simple bridge between react-hook-form and material-ui.",
   "author": "BigChicChicken",
   "license": "MIT",
@@ -21,6 +21,12 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build"
   },
+  "dependencies": {
+    "hoist-non-react-statics": "^3.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.36.1"
+  },
   "peerDependencies": {
     "hoist-non-react-statics": "^3.3.2",
     "react": "^18.2.0",
@@ -31,12 +37,6 @@
     "hooks": {
       "pre-commit": "tsdx lint"
     }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
   },
   "module": "dist/react-hook-form-material-ui.esm.js",
   "devDependencies": {

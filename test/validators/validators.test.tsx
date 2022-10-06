@@ -4,19 +4,19 @@ import {
   isEmail,
   isUrl,
   hasDigit,
-  hasSpecialCharacter,
-} from '../../src/validators/validators';
+  hasSpecialCharacter
+} from '../../src/validators/validators'
 
 describe('Validators tests', () => {
   test('isEmail', () => {
     const emails = {
-      'john.doe@email.com': true,
-    };
+      'john.doe@email.com': true
+    }
 
     Object.entries(emails).forEach(([email, valueExpected]) => {
-      expect(isEmail(email)).toBe(valueExpected);
-    });
-  });
+      expect(isEmail(email)).toBe(valueExpected)
+    })
+  })
 
   test('isUrl', () => {
     const urls = {
@@ -26,13 +26,13 @@ describe('Validators tests', () => {
       'https://good.url.com': true,
       'root:root@good.url.com': true,
       'good.url.com:80': true,
-      'good.url.com/target': true,
-    };
+      'good.url.com/target': true
+    }
 
     Object.entries(urls).forEach(([url, valueExpected]) => {
-      expect(isUrl(url)).toBe(valueExpected);
-    });
-  });
+      expect(isUrl(url)).toBe(valueExpected)
+    })
+  })
 
   test('hasUppercase', () => {
     const values = {
@@ -40,13 +40,13 @@ describe('Validators tests', () => {
       tEst: true,
       teSt: true,
       tesT: true,
-      test: false,
-    };
+      test: false
+    }
 
     Object.entries(values).forEach(([value, valueExpected]) => {
-      expect(hasUppercase(value)).toBe(valueExpected);
-    });
-  });
+      expect(hasUppercase(value)).toBe(valueExpected)
+    })
+  })
 
   test('hasLowercase', () => {
     const values = {
@@ -54,24 +54,24 @@ describe('Validators tests', () => {
       TeST: true,
       TEsT: true,
       TESt: true,
-      TEST: false,
-    };
+      TEST: false
+    }
 
     Object.entries(values).forEach(([value, valueExpected]) => {
-      expect(hasLowercase(value)).toBe(valueExpected);
-    });
-  });
+      expect(hasLowercase(value)).toBe(valueExpected)
+    })
+  })
 
   test('hasDigit', () => {
     const values = {
       test: false,
-      test123: true,
-    };
+      test123: true
+    }
 
     Object.entries(values).forEach(([value, valueExpected]) => {
-      expect(hasDigit(value)).toBe(valueExpected);
-    });
-  });
+      expect(hasDigit(value)).toBe(valueExpected)
+    })
+  })
 
   test('hasSpecialCharacter', () => {
     const values = {
@@ -107,11 +107,11 @@ describe('Validators tests', () => {
       'test:': true,
       'test!': true,
       'test<': true,
-      'test>': true,
-    };
+      'test>': true
+    }
 
     Object.entries(values).forEach(([value, valueExpected]) => {
-      expect(hasSpecialCharacter(value)).toBe(valueExpected);
-    });
-  });
-});
+      expect(hasSpecialCharacter(value)).toBe(valueExpected)
+    })
+  })
+})
