@@ -1,8 +1,8 @@
 {
   "name": "react-hook-form-material-ui",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "This package is a simple bridge between react-hook-form and material-ui.",
-  "author": "BigChicChicken",
+  "author": "Florent TEDESCO",
   "license": "MIT",
   "repository": "BigChicChicken/react-hook-form-material-ui",
   "main": "dist/index.js",

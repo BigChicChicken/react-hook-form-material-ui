@@ -44,7 +44,7 @@ class Slider extends Component<SliderProps & { form: UseFormReturn }, any> {
             {!!error && (
               <FormHelperText>
                 {ErrorMessages && ErrorMessages[error.type]
-                  ? ErrorMessages[error.type]
+                  ? ErrorMessages[error.type]()
                   : error.message}
               </FormHelperText>
             )}

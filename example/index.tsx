@@ -30,13 +30,13 @@ import {
 } from '@mui/material'
 
 const ErrorMessages = {
-  required: 'This field is required.',
-  isEmail: 'This field is not an email.',
-  isUrl: 'This field is not an URL.',
-  hasUppercase: 'This field must have one uppercase',
-  hasLowercase: 'This field must have one lowercase',
-  hasDigit: 'This field must have one digit',
-  hasSpecialCharacter: 'This field must have one special character'
+  required: () => 'This field is required.',
+  isEmail: () => 'This field is not an email.',
+  isUrl: () => 'This field is not an URL.',
+  hasUppercase: () => 'This field must have one uppercase',
+  hasLowercase: () => 'This field must have one lowercase',
+  hasDigit: () => 'This field must have one digit',
+  hasSpecialCharacter: () => 'This field must have one special character'
 }
 
 const App = () => {

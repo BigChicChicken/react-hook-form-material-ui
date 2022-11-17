@@ -48,7 +48,7 @@ class Checkbox extends Component<CheckboxProps & { form: UseFormReturn }, any> {
             {!!error && (
               <FormHelperText>
                 {ErrorMessages && ErrorMessages[error.type]
-                  ? ErrorMessages[error.type]
+                  ? ErrorMessages[error.type]()
                   : error.message}
               </FormHelperText>
             )}
