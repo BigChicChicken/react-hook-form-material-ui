@@ -40,7 +40,7 @@ class TextField extends Component<
             helperText={
               error
                 ? ErrorMessages && ErrorMessages[error.type]
-                  ? ErrorMessages[error.type]()
+                  ? ErrorMessages[error.type](error)
                   : error.message
                 : null
             }

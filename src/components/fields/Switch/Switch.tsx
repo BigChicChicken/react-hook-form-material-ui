@@ -48,7 +48,7 @@ class Switch extends Component<SwitchProps & { form: UseFormReturn }, any> {
             {!!error && (
               <FormHelperText>
                 {ErrorMessages && ErrorMessages[error.type]
-                  ? ErrorMessages[error.type]()
+                  ? ErrorMessages[error.type](error)
                   : error.message}
               </FormHelperText>
             )}
