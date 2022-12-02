@@ -53,4 +53,4 @@ const App = () => {
 
 ## License
 
-This is completely free and released under the [MIT License](https://github.com/BigChicChicken/react-hook-form-material-ui/blob/main/LICENSE).
+This is completely free and released under the [MIT License](/LICENSE).
